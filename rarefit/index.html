@@ -37,8 +37,123 @@
         .hero-title, .hero-subtitle, .hero-text, .hero-cta {
             opacity: 0;
         }
+        /* Base animation styles */
+        .animate-element {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: opacity, transform;
+        }
+        .animate-element.animated {
+            opacity: 1 !important;
+        }
+
+        /* Fade Up Animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .fade-up.animated {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Fade Down Animation */
+        .fade-down {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        .fade-down.animated {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Fade Left Animation */
+        .fade-left {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        .fade-left.animated {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        /* Fade Right Animation */
+        .fade-right {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        .fade-right.animated {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        /* Scale Animation */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .scale-in.animated {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        /* Zoom Animation */
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        .zoom-in.animated {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        /* Rotate Animation */
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.9);
+        }
+        .rotate-in.animated {
+            opacity: 1 !important;
+            transform: rotate(0deg) scale(1) !important;
+        }
+
+        /* Flip Animation */
+        .flip-up {
+            opacity: 0;
+            transform: perspective(400px) rotateX(-90deg);
+        }
+        .flip-up.animated {
+            opacity: 1 !important;
+            transform: perspective(400px) rotateX(0deg) !important;
+        }
+
+        /* Slide Animation */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .slide-up.animated {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Stagger animations */
+        .stagger-1 { transition-delay: 0.1s !important; }
+        .stagger-2 { transition-delay: 0.2s !important; }
+        .stagger-3 { transition-delay: 0.3s !important; }
+        .stagger-4 { transition-delay: 0.4s !important; }
+        .stagger-5 { transition-delay: 0.5s !important; }
+        .stagger-6 { transition-delay: 0.6s !important; }
+
+        /* Legacy support */
         .reveal-element {
-            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal-element.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
         .floating {
             animation: float 3s ease-in-out infinite;
@@ -120,13 +235,16 @@
             <div class="text-xl sm:text-2xl font-bold gradient-text">RAREFIT</div>
 
             <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-6 lg:space-x-8">
+            <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
                 <a href="#hero" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">홈</a>
                 <a href="#about" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">소개</a>
                 <a href="#reviews" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">후기</a>
                 <a href="#services" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">서비스</a>
                 <a href="#features" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">특징</a>
                 <a href="#branding" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">브랜딩</a>
+                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-6 py-2 rounded-full font-bold text-sm lg:text-base transition-all transform hover:scale-105 shadow-lg">
+                    상담신청
+                </button>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -171,43 +289,43 @@
 <section id="about" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element fade-down">
                 레어핏 소개
             </h2>
-            <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto reveal-element">
+            <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto animate-element fade-up stagger-1">
                 왜 이것이어야 하는지 설명할 수 있나요?
             </p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="reveal-element">
+            <div class="animate-element fade-right">
                 <div class="glass-effect rounded-2xl p-8">
-                    <h3 class="text-3xl font-bold mb-6 gradient-text">레어핏은</h3>
-                    <p class="text-xl text-black mb-8 leading-relaxed font-medium">
+                    <h3 class="text-3xl font-bold mb-6 gradient-text animate-element fade-up">레어핏은</h3>
+                    <p class="text-xl text-black mb-8 leading-relaxed font-medium animate-element fade-up stagger-1">
                         고객이 '<span class="gradient-text">찾아올 수밖에 없는 이유</span>'를<br>
                         함께 찾습니다.
                     </p>
                     <div class="space-y-4 text-gray-600">
-                        <div class="flex items-center reveal-element">
+                        <div class="flex items-center animate-element fade-left stagger-2">
                             <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
                             <p class="text-lg">잡지 에디터 3년 · 광고대행사 3년</p>
                         </div>
-                        <div class="flex items-center reveal-element">
+                        <div class="flex items-center animate-element fade-left stagger-3">
                             <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
                             <p class="text-lg">전자책 &lt;ZERO부터글쓰기&gt; 출간</p>
                         </div>
-                        <div class="flex items-center reveal-element">
+                        <div class="flex items-center animate-element fade-left stagger-4">
                             <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
                             <p class="text-lg">전문직 · 고관여 업종 특화</p>
                         </div>
-                        <div class="flex items-center reveal-element">
+                        <div class="flex items-center animate-element fade-left stagger-5">
                             <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
                             <p class="text-lg">자사 브랜드 채널운영으로 계약 수임</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="reveal-element">
+            <div class="animate-element scale-in stagger-2">
                 <div class="w-80 h-80 mx-auto rounded-2xl overflow-hidden relative shadow-2xl">
                     <img src="image/profile.png" alt="레어핏 대표 이승희" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
@@ -226,14 +344,14 @@
 <section id="reviews" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element zoom-in">
                 레어핏 실제 고객 후기
             </h2>
-            <p class="text-xl text-gray-600 reveal-element">신뢰할 수 있는 실제 후기들</p>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">신뢰할 수 있는 실제 후기들</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-1">
                 <div class="flex mb-6">
                     <div class="text-yellow-400 text-2xl">★★★★★</div>
                 </div>
@@ -243,7 +361,7 @@
                 <div class="text-gray-400 font-medium">- 병원 원장님</div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-2">
                 <div class="flex mb-6">
                     <div class="text-yellow-400 text-2xl">★★★★★</div>
                 </div>
@@ -253,7 +371,7 @@
                 <div class="text-gray-400 font-medium">- 의료진 관계자</div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-3">
                 <div class="flex mb-6">
                     <div class="text-yellow-400 text-2xl">★★★★★</div>
                 </div>
@@ -266,15 +384,15 @@
 
         <!-- Stats Section -->
         <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">
-            <div class="reveal-element">
+            <div class="animate-element scale-in stagger-1">
                 <div class="stats-counter text-black mb-4" data-target="87">0</div>
                 <p class="text-xl text-gray-600">고객 만족도 (%)</p>
             </div>
-            <div class="reveal-element">
+            <div class="animate-element scale-in stagger-2">
                 <div class="stats-counter text-black mb-4" data-target="150">0</div>
                 <p class="text-xl text-gray-600">완료한 프로젝트</p>
             </div>
-            <div class="reveal-element">
+            <div class="animate-element scale-in stagger-3">
                 <div class="stats-counter text-black mb-4" data-target="24">0</div>
                 <p class="text-xl text-gray-600">평균 응답 시간 (시간)</p>
             </div>
@@ -336,14 +454,14 @@
 <section id="features" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element slide-up">
                 Innovative Solutions - Key Features
             </h2>
         </div>
 
         <div class="space-y-16">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="reveal-element">
+                <div class="animate-element fade-right">
                     <div class="text-6xl font-bold text-gray-500/20 mb-4">01</div>
                     <h3 class="text-3xl font-bold gradient-text mb-6">Custom Designs</h3>
                     <p class="text-xl text-gray-600 leading-relaxed">
@@ -351,16 +469,16 @@
                         각 프로젝트마다 고유한 접근법을 통해 최적의 결과를 창출합니다.
                     </p>
                 </div>
-                <div class="reveal-element">
+                <div class="animate-element fade-left stagger-1">
                     <img src="design/img1.png" alt="Custom Design" class="w-full rounded-2xl shadow-2xl">
                 </div>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="reveal-element order-2 lg:order-1">
+                <div class="animate-element fade-right stagger-1 order-2 lg:order-1">
                     <img src="design/img2.png" alt="Quality Assurance" class="w-full rounded-2xl shadow-2xl">
                 </div>
-                <div class="reveal-element order-1 lg:order-2">
+                <div class="animate-element fade-left order-1 lg:order-2">
                     <div class="text-6xl font-bold text-gray-500/20 mb-4">02</div>
                     <h3 class="text-3xl font-bold gradient-text mb-6">Quality Assurance</h3>
                     <p class="text-xl text-gray-600 leading-relaxed">
@@ -371,7 +489,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="reveal-element">
+                <div class="animate-element fade-right">
                     <div class="text-6xl font-bold text-gray-500/20 mb-4">03</div>
                     <h3 class="text-3xl font-bold gradient-text mb-6">Sustainable Practices</h3>
                     <p class="text-xl text-gray-600 leading-relaxed">
@@ -379,7 +497,7 @@
                         장기적인 성장을 위한 전략적 접근법을 제시합니다.
                     </p>
                 </div>
-                <div class="reveal-element">
+                <div class="animate-element fade-left stagger-1">
                     <img src="design/img3.png" alt="Sustainable Practices" class="w-full rounded-2xl shadow-2xl">
                 </div>
             </div>
@@ -391,14 +509,14 @@
 <section id="branding" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element flip-up">
                 레어핏은 창의적이고 혁신적인<br>마케팅 솔루션을 제공합니다
             </h2>
-            <p class="text-xl text-gray-600 reveal-element">고객의 브랜드를 성공적으로 구축합니다</p>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">고객의 브랜드를 성공적으로 구축합니다</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -409,7 +527,7 @@
                 <p class="text-gray-600 leading-relaxed">레어핏 고객의 브랜드 인지도를 높이는 데 중점을 둡니다</p>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
@@ -419,7 +537,7 @@
                 <p class="text-gray-600 leading-relaxed">소셜 미디어를 통한 고객의 소통을 강화하고 브랜드의 영향력을 확대합니다</p>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
@@ -429,7 +547,7 @@
                 <p class="text-gray-600 leading-relaxed">성과 분석을 통해 마케팅 전략의 효율성을 평가하고 개선점을 찾아냅니다</p>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -439,7 +557,7 @@
                 <p class="text-gray-600 leading-relaxed">고객 만족을 최우선으로 생각하며, 맞춤형 솔루션을 제공합니다</p>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -449,7 +567,7 @@
                 <p class="text-gray-600 leading-relaxed">혁신적인 전략을 통해 시장에서 경쟁력을 확보하고 고객 브랜드를 차별화합니다</p>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 reveal-element">
+            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
                 <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
@@ -466,14 +584,14 @@
 <section id="faq" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element fade-down">
                 자주 묻는 질문
             </h2>
-            <p class="text-xl text-gray-600 reveal-element">Common Questions</p>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">Common Questions</p>
         </div>
 
         <div class="max-w-4xl mx-auto space-y-6">
-            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-2">
                 <div class="flex justify-between items-center cursor-pointer">
                     <h3 class="text-xl font-bold text-black">레어핏의 마케팅 전략은 어떻게 구성되나요?</h3>
                     <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -485,7 +603,7 @@
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-3">
                 <div class="flex justify-between items-center cursor-pointer">
                     <h3 class="text-xl font-bold text-black">성과 분석은 어떻게 이루어지나요?</h3>
                     <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -497,7 +615,7 @@
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-4">
                 <div class="flex justify-between items-center cursor-pointer">
                     <h3 class="text-xl font-bold text-black">고객 만족을 위해 어떤 노력을 하나요?</h3>
                     <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -509,7 +627,7 @@
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-5">
                 <div class="flex justify-between items-center cursor-pointer">
                     <h3 class="text-xl font-bold text-black">소셜 미디어를 통한 브랜드 홍보는 어떻게 진행되나요?</h3>
                     <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -521,7 +639,7 @@
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-6">
                 <div class="flex justify-between items-center cursor-pointer">
                     <h3 class="text-xl font-bold text-black">브랜드 성장을 위한 혁신적인 전략은 무엇인가요?</h3>
                     <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -617,13 +735,23 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Initialize ScrollReveal
-        const sr = ScrollReveal({
-            distance: '60px',
-            duration: 1500,
-            delay: 200,
-            reset: false
-        });
+        // Scroll performance optimization
+        let ticking = false;
+        function updateScrollPosition() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // Parallax effect for hero background
+                    const scrolled = window.pageYOffset;
+                    const parallax = document.querySelector('#hero img');
+                    if (parallax) {
+                        const speed = scrolled * 0.5;
+                        parallax.style.transform = `translateY(${speed}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
 
         // Hero section animations with Anime.js
         function startHeroAnimations() {
@@ -662,17 +790,102 @@
         // Start hero animations
         setTimeout(startHeroAnimations, 500);
 
-        // ScrollReveal animations for sections
-        sr.reveal('.reveal-element', {
-            origin: 'bottom',
-            distance: '60px',
-            duration: 1000,
-            delay: 200,
-            interval: 100,
-            beforeReveal: function (el) {
-                el.style.visibility = 'visible';
+        // Enhanced scroll animation with multiple detection methods
+        function createScrollObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '50px 0px -50px 0px', // More generous margins
+                threshold: [0, 0.1, 0.3, 0.5] // Multiple thresholds for better detection
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+                        // Add animated class with a slight delay for smooth effect
+                        setTimeout(() => {
+                            if (!entry.target.classList.contains('animated')) {
+                                entry.target.classList.add('animated');
+                                console.log('Intersection animated:', entry.target.className);
+                            }
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Alternative scroll-based detection
+            function checkScrollAnimations() {
+                const elements = document.querySelectorAll('.animate-element:not(.animated), .reveal-element:not(.revealed)');
+                const windowHeight = window.innerHeight;
+                const scrollTop = window.pageYOffset;
+
+                elements.forEach(el => {
+                    const elementTop = el.offsetTop;
+                    const elementHeight = el.offsetHeight;
+                    
+                    // Trigger when element is 20% into viewport
+                    if (scrollTop + windowHeight > elementTop + (elementHeight * 0.2)) {
+                        setTimeout(() => {
+                            if (el.classList.contains('animate-element')) {
+                                el.classList.add('animated');
+                                console.log('Scroll fallback animated:', el.className);
+                            }
+                            if (el.classList.contains('reveal-element')) {
+                                el.classList.add('revealed');
+                                console.log('Scroll fallback revealed:', el.className);
+                            }
+                        }, 50);
+                    }
+                });
             }
-        });
+
+            // Throttled scroll listener as backup
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(checkScrollAnimations, 100);
+            }, { passive: true });
+
+            // Wait for DOM to be fully loaded before observing elements
+            setTimeout(() => {
+                // Observe all animate elements
+                const animateElements = document.querySelectorAll('.animate-element');
+                console.log(`Found ${animateElements.length} animate elements`);
+                
+                animateElements.forEach(el => {
+                    observer.observe(el);
+                });
+
+                // Legacy support for reveal elements
+                const revealElements = document.querySelectorAll('.reveal-element');
+                console.log(`Found ${revealElements.length} reveal elements`);
+                
+                revealElements.forEach(el => {
+                    observer.observe(el);
+                });
+
+                // Initial scroll check
+                checkScrollAnimations();
+            }, 100);
+        }
+
+        // Initialize scroll observer after DOM is ready
+        createScrollObserver();
+        
+        // Remove duplicate observer initialization
+
+        // Test function to manually trigger animations (for debugging)
+        function testAnimations() {
+            console.log('Testing animations...');
+            document.querySelectorAll('.animate-element').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animated');
+                    console.log('Animated element:', el);
+                }, index * 200);
+            });
+        }
+
+        // Removed auto-test - animations should only trigger on scroll
 
         // Stats counter animation
         function animateStats() {
@@ -822,15 +1035,8 @@
             });
         });
 
-        // Parallax effect for hero background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('#hero img');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
+        // Optimized scroll event listener
+        window.addEventListener('scroll', updateScrollPosition, { passive: true });
 
         console.log('모든 애니메이션과 인터랙션이 초기화되었습니다.');
     });
