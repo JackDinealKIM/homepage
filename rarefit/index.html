@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARE 마케팅 - 10명 중 8명이 구매하는 병원 마케팅 솔루션</title>
+    <meta name="description" content="오로지 매출로만 얘기합니다. 병원 전문 마케팅 에이전시 RARE 마케팅">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent-gray': '#6B7280',
+                        'accent-light': '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #4B5563 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #000000 0%, #1F2937 50%, #374151 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .accent-text {
+            color: #6B7280;
+        }
+        .hero-title, .hero-subtitle, .hero-text, .hero-cta {
+            opacity: 0;
+        }
+        .reveal-element {
+            visibility: hidden;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .mobile-nav {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        .number-highlight {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #C084FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            font-weight: 800;
+        }
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        @media (max-width: 768px) {
+            .stats-counter {
+                font-size: 2rem;
+            }
+        }
+        .faq-item {
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+<!-- Mobile Navigation Menu -->
+<div class="mobile-nav fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md z-50 p-6 md:hidden border-l border-gray-300">
+    <div class="flex justify-between items-center mb-8">
+        <div class="text-xl font-bold gradient-text">RAREFIT</div>
+        <button class="mobile-close text-black text-2xl">&times;</button>
+    </div>
+    <nav class="space-y-4">
+        <a href="#hero" class="block text-lg hover:text-gray-600 transition-colors">홈</a>
+        <a href="#about" class="block text-lg hover:text-gray-600 transition-colors">소개</a>
+        <a href="#reviews" class="block text-lg hover:text-gray-600 transition-colors">후기</a>
+        <a href="#services" class="block text-lg hover:text-gray-600 transition-colors">서비스</a>
+        <a href="#features" class="block text-lg hover:text-gray-600 transition-colors">특징</a>
+        <a href="#branding" class="block text-lg hover:text-gray-600 transition-colors">브랜딩</a>
+        <a href="#faq" class="block text-lg hover:text-gray-600 transition-colors">FAQ</a>
+        <a href="#social" class="block text-lg hover:text-gray-600 transition-colors">소셜미디어</a>
+    </nav>
+</div>
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-300/50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-xl sm:text-2xl font-bold gradient-text">RAREFIT</div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#hero" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">홈</a>
+                <a href="#about" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">소개</a>
+                <a href="#reviews" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">후기</a>
+                <a href="#services" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">서비스</a>
+                <a href="#features" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">특징</a>
+                <a href="#branding" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">브랜딩</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-toggle md:hidden text-black">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- 1. Hero Section -->
+<section id="hero" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30">
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="container mx-auto px-6 relative z-10 text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 text-white hero-title leading-tight">
+            <span class="number-highlight">10명 중 8명</span>이 구매하는<br>
+            병원 마케팅 솔루션
+        </h1>
+        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-6 md:mb-8 hero-subtitle font-semibold">
+            오로지, <span class="text-white font-bold">매출로만 얘기</span>합니다.
+        </h2>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 md:mb-12 max-w-3xl mx-auto hero-text leading-relaxed">
+            병원 전문 마케팅 에이전시, <strong>레어핏</strong>
+        </p>
+        <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
+            무료 상담 신청하기
+        </button>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 floating">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- 2. About Section -->
+<section id="about" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                레어핏 소개
+            </h2>
+            <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto reveal-element">
+                왜 이것이어야 하는지 설명할 수 있나요?
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal-element">
+                <div class="glass-effect rounded-2xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 gradient-text">레어핏은</h3>
+                    <p class="text-xl text-black mb-8 leading-relaxed font-medium">
+                        고객이 '<span class="gradient-text">찾아올 수밖에 없는 이유</span>'를<br>
+                        함께 찾습니다.
+                    </p>
+                    <div class="space-y-4 text-gray-600">
+                        <div class="flex items-center reveal-element">
+                            <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
+                            <p class="text-lg">잡지 에디터 3년 · 광고대행사 3년</p>
+                        </div>
+                        <div class="flex items-center reveal-element">
+                            <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
+                            <p class="text-lg">전자책 &lt;ZERO부터글쓰기&gt; 출간</p>
+                        </div>
+                        <div class="flex items-center reveal-element">
+                            <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
+                            <p class="text-lg">전문직 · 고관여 업종 특화</p>
+                        </div>
+                        <div class="flex items-center reveal-element">
+                            <div class="w-2 h-2 bg-black rounded-full mr-4"></div>
+                            <p class="text-lg">자사 브랜드 채널운영으로 계약 수임</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-element">
+                <div class="w-80 h-80 mx-auto rounded-2xl overflow-hidden relative shadow-2xl">
+                    <img src="image/profile.png" alt="레어핏 대표 이승희" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                        <div class="text-center text-white">
+                            <div class="text-2xl font-bold mb-2">레어핏</div>
+                            <div class="text-lg text-gray-200">마케팅 대표 이승희</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Customer Reviews Section -->
+<section id="reviews" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                레어핏 실제 고객 후기
+            </h2>
+            <p class="text-xl text-gray-600 reveal-element">신뢰할 수 있는 실제 후기들</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "사실 업종 하면서 블로그 관리를 꾸준히 한다는 건 정말 어려운 일입니다..."
+                </p>
+                <div class="text-gray-400 font-medium">- 병원 원장님</div>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "운영 방침을 위해 같이 고민해주시고, 힘써주시고 진짜 최고세요..."
+                </p>
+                <div class="text-gray-400 font-medium">- 의료진 관계자</div>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "작가님이랑 부씨 수개월째 블로그작업 함께 하고 있습니다..."
+                </p>
+                <div class="text-gray-400 font-medium">- 클리닉 대표</div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">
+            <div class="reveal-element">
+                <div class="stats-counter text-black mb-4" data-target="87">0</div>
+                <p class="text-xl text-gray-600">고객 만족도 (%)</p>
+            </div>
+            <div class="reveal-element">
+                <div class="stats-counter text-black mb-4" data-target="150">0</div>
+                <p class="text-xl text-gray-600">완료한 프로젝트</p>
+            </div>
+            <div class="reveal-element">
+                <div class="stats-counter text-black mb-4" data-target="24">0</div>
+                <p class="text-xl text-gray-600">평균 응답 시간 (시간)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Services Section -->
+<section id="services" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                모던한 디자인 메시지의 강력함
+            </h2>
+            <p class="text-2xl text-gray-600 reveal-element">Modern & Simple</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center reveal-element group">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gray-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 gradient-text">디지털 마케팅</h3>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    현대적이고 세련된 디지털 마케팅 전략으로 고객의 브랜드를 차별화합니다.
+                </p>
+            </div>
+
+            <div class="text-center reveal-element group">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 gradient-text">브랜드 전략</h3>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    고객의 마음을 움직이는 브랜드 스토리텔링과 감성적 연결을 구축합니다.
+                </p>
+            </div>
+
+            <div class="text-center reveal-element group">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gray-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 gradient-text">성과 분석</h3>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    데이터 기반의 정확한 성과 측정과 지속적인 개선 방안을 제시합니다.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Key Features Section -->
+<section id="features" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                Innovative Solutions - Key Features
+            </h2>
+        </div>
+
+        <div class="space-y-16">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-element">
+                    <div class="text-6xl font-bold text-gray-500/20 mb-4">01</div>
+                    <h3 class="text-3xl font-bold gradient-text mb-6">Custom Designs</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        레어핏은 고객의 요구에 맞춘 맞춤형 디자인을 제공합니다.
+                        각 프로젝트마다 고유한 접근법을 통해 최적의 결과를 창출합니다.
+                    </p>
+                </div>
+                <div class="reveal-element">
+                    <img src="design/img1.png" alt="Custom Design" class="w-full rounded-2xl shadow-2xl">
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-element order-2 lg:order-1">
+                    <img src="design/img2.png" alt="Quality Assurance" class="w-full rounded-2xl shadow-2xl">
+                </div>
+                <div class="reveal-element order-1 lg:order-2">
+                    <div class="text-6xl font-bold text-gray-500/20 mb-4">02</div>
+                    <h3 class="text-3xl font-bold gradient-text mb-6">Quality Assurance</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        우리는 최고의 품질을 보장하기 위해 엄격한 관리 시스템을 운영합니다.
+                        모든 단계에서 철저한 검토와 테스트를 통해 완벽한 결과물을 제공합니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-element">
+                    <div class="text-6xl font-bold text-gray-500/20 mb-4">03</div>
+                    <h3 class="text-3xl font-bold gradient-text mb-6">Sustainable Practices</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        환경을 생각하는 지속 가능한 방법을 통해 사업에 긍정적인 영향을 미칩니다.
+                        장기적인 성장을 위한 전략적 접근법을 제시합니다.
+                    </p>
+                </div>
+                <div class="reveal-element">
+                    <img src="design/img3.png" alt="Sustainable Practices" class="w-full rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. Branding Section -->
+<section id="branding" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                레어핏은 창의적이고 혁신적인<br>마케팅 솔루션을 제공합니다
+            </h2>
+            <p class="text-xl text-gray-600 reveal-element">고객의 브랜드를 성공적으로 구축합니다</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">브랜드 인지도</h3>
+                <p class="text-gray-600 leading-relaxed">레어핏 고객의 브랜드 인지도를 높이는 데 중점을 둡니다</p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">소셜 미디어</h3>
+                <p class="text-gray-600 leading-relaxed">소셜 미디어를 통한 고객의 소통을 강화하고 브랜드의 영향력을 확대합니다</p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">성과 분석</h3>
+                <p class="text-gray-600 leading-relaxed">성과 분석을 통해 마케팅 전략의 효율성을 평가하고 개선점을 찾아냅니다</p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">고객 만족</h3>
+                <p class="text-gray-600 leading-relaxed">고객 만족을 최우선으로 생각하며, 맞춤형 솔루션을 제공합니다</p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">혁신적인 전략</h3>
+                <p class="text-gray-600 leading-relaxed">혁신적인 전략을 통해 시장에서 경쟁력을 확보하고 고객 브랜드를 차별화합니다</p>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 reveal-element">
+                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 gradient-text">브랜드 성장</h3>
+                <p class="text-gray-600 leading-relaxed">브랜드 성장을 가속화하기 위해 맞춤형 마케팅 캠페인을 계획하고 실행합니다</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. FAQ Section -->
+<section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                자주 묻는 질문
+            </h2>
+            <p class="text-xl text-gray-600 reveal-element">Common Questions</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-bold text-black">레어핏의 마케팅 전략은 어떻게 구성되나요?</h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer mt-4">
+                    <p class="text-gray-600 leading-relaxed">고객의 비즈니스 목표와 타겟 고객을 정확히 파악한 후, 데이터 분석을 통해 맞춤형 마케팅 전략을 수립합니다. 브랜드 정체성, 경쟁사 분석, 시장 동향을 종합적으로 고려하여 효과적인 마케팅 방향을 제시합니다.</p>
+                </div>
+            </div>
+
+            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-bold text-black">성과 분석은 어떻게 이루어지나요?</h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer mt-4">
+                    <p class="text-gray-600 leading-relaxed">Google Analytics, 소셜미디어 인사이트, 웹사이트 트래픽 분석 등 다양한 데이터 소스를 활용합니다. 월별 성과 리포트를 제공하며, ROI, 전환율, 고객 유입 경로 등을 상세히 분석하여 지속적인 개선 방안을 제시합니다.</p>
+                </div>
+            </div>
+
+            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-bold text-black">고객 만족을 위해 어떤 노력을 하나요?</h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer mt-4">
+                    <p class="text-gray-600 leading-relaxed">정기적인 소통과 피드백을 통해 고객의 니즈를 파악합니다. 프로젝트 진행 상황을 실시간으로 공유하고, 24시간 내 응답을 원칙으로 합니다. 또한 프로젝트 완료 후에도 지속적인 사후 관리 서비스를 제공합니다.</p>
+                </div>
+            </div>
+
+            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-bold text-black">소셜 미디어를 통한 브랜드 홍보는 어떻게 진행되나요?</h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer mt-4">
+                    <p class="text-gray-600 leading-relaxed">타겟 고객이 활발한 플랫폼을 선별하여 맞춤형 콘텐츠를 제작합니다. 인스타그램, 페이스북, 네이버 블로그 등 다양한 채널에서 일관된 브랜드 메시지를 전달하며, 인플루언서 협업과 광고 캠페인을 통해 브랜드 인지도를 확대합니다.</p>
+                </div>
+            </div>
+
+            <div class="faq-item glass-effect rounded-2xl p-8 reveal-element">
+                <div class="flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-bold text-black">브랜드 성장을 위한 혁신적인 전략은 무엇인가요?</h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer mt-4">
+                    <p class="text-gray-600 leading-relaxed">AI 기반 고객 행동 분석, 개인화된 마케팅 메시지, 옴니채널 전략을 통해 차별화된 고객 경험을 제공합니다. 또한 최신 마케팅 트렌드와 기술을 적극 활용하여 경쟁사보다 앞선 마케팅 솔루션을 구현합니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. Social Media Section -->
+<section id="social" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+                소셜미디어를 통해 브랜드를<br>홍보하고 고객과 소통합니다
+            </h2>
+            <div class="text-2xl font-bold text-gray-400 reveal-element">#RAREFIT</div>
+        </div>
+
+        <div class="social-grid">
+            <div class="reveal-element">
+                <img src="design/img4.png" alt="Social Media Content 1" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="reveal-element">
+                <img src="design/img5.png" alt="Social Media Content 2" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="reveal-element">
+                <img src="design/img0-2.png" alt="Social Media Content 3" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="reveal-element">
+                <img src="design/img1.png" alt="Social Media Content 4" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="reveal-element">
+                <img src="design/img2.png" alt="Social Media Content 5" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="reveal-element">
+                <img src="design/img3.png" alt="Social Media Content 6" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="text-center mt-16">
+            <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                무료 상담 신청하기
+            </button>
+            <p class="text-gray-400 mt-4">지금 바로 시작하세요!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 bg-gray-100 border-t border-gray-300/50">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="text-3xl font-bold gradient-text mb-4">RAREFIT</div>
+                <p class="text-gray-400 mb-4">10명 중 8명이 구매하는 병원 마케팅 솔루션</p>
+                <p class="text-gray-500">오로지 매출로만 얘기합니다.</p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold text-black mb-4">서비스</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li>디지털 마케팅</li>
+                    <li>브랜드 전략</li>
+                    <li>성과 분석</li>
+                    <li>소셜미디어 관리</li>
+                    <li>맞춤형 컨설팅</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold text-black mb-4">연락처</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p>RAREFIT</p>
+                    <p>대표: 이승희</p>
+                    <p>Email: contact@raremarketing.co.kr</p>
+                    <p>Tel: 02-1234-5678</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-500/20 mt-12 pt-8 text-center">
+            <p class="text-gray-500">&copy; 2025 RAREFIT 마케팅. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            distance: '60px',
+            duration: 1500,
+            delay: 200,
+            reset: false
+        });
+
+        // Hero section animations with Anime.js
+        function startHeroAnimations() {
+            anime.timeline({
+                easing: 'easeOutExpo',
+                duration: 1000
+            })
+                .add({
+                    targets: '.hero-title',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    scale: [0.9, 1],
+                    duration: 1200,
+                })
+                .add({
+                    targets: '.hero-subtitle',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                }, '-=800')
+                .add({
+                    targets: '.hero-text',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 800,
+                }, '-=600')
+                .add({
+                    targets: '.hero-cta',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    scale: [0.9, 1],
+                    duration: 800,
+                }, '-=400');
+        }
+
+        // Start hero animations
+        setTimeout(startHeroAnimations, 500);
+
+        // ScrollReveal animations for sections
+        sr.reveal('.reveal-element', {
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            interval: 100,
+            beforeReveal: function (el) {
+                el.style.visibility = 'visible';
+            }
+        });
+
+        // Stats counter animation
+        function animateStats() {
+            const statsCounters = document.querySelectorAll('.stats-counter');
+            statsCounters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                anime({
+                    targets: counter,
+                    innerHTML: [0, target],
+                    duration: 2000,
+                    easing: 'easeOutQuad',
+                    round: 1,
+                    delay: 500
+                });
+            });
+        }
+
+        // Intersection Observer for stats animation
+        const statsSection = document.getElementById('reviews');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Mobile navigation toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileClose = document.querySelector('.mobile-close');
+
+        mobileToggle?.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose?.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile nav when clicking outside
+        mobileNav?.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const header = item.querySelector('.cursor-pointer');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('svg');
+
+            header.addEventListener('click', function() {
+                const isActive = answer.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    otherAnswer.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-item svg').forEach(otherIcon => {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    answer.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced hover effects with Anime.js
+        document.querySelectorAll('.glass-effect, .group').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    translateY: -8,
+                    scale: 1.02,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    translateY: 0,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+
+        // Button hover animations
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: 1.05,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+
+            button.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: 1,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('#hero img');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        console.log('모든 애니메이션과 인터랙션이 초기화되었습니다.');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="우리교육원의 다양한 교육 프로그램 - 비즈니스, 창작, 기술 과정을 소개합니다">
+    <meta name="keywords" content="교육과정, 커리큘럼, 비즈니스, 창작, 기술, 수업">
+    <title>프로그램/커리큘럼 - 우리교육원</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animation libraries -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-orange': '#D97706',
+                        'deep-brown': '#92400E',
+                        'accent-red': '#DC2626',
+                        'cream': '#FEF3C7',
+                        'dark-brown': '#451A03'
+                    },
+                    fontFamily: {
+                        'noto': ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-noto text-dark-brown">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300" id="header">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-deep-brown rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        우
+                    </div>
+                    <span class="ml-3 text-2xl font-bold text-dark-brown">우리교육원</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">메인</a>
+                    <div class="relative group">
+                        <a href="about.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">인사말/학원소개</a>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="teachers.html" class="block px-4 py-2 text-dark-brown hover:bg-cream">강사진 소개</a>
+                            <a href="programs.html" class="block px-4 py-2 text-warm-orange font-semibold bg-cream">프로그램/커리큘럼</a>
+                            <a href="textbooks.html" class="block px-4 py-2 text-dark-brown hover:bg-cream">교재 안내</a>
+                            <a href="contact.html#directions" class="block px-4 py-2 text-dark-brown hover:bg-cream">오시는 길</a>
+                        </div>
+                    </div>
+                    <a href="reviews.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">수강후기</a>
+                    <a href="faq.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">자주 묻는 질문</a>
+                    <a href="contact.html" class="bg-gradient-to-r from-warm-orange to-deep-brown text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">예약하기</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden flex items-center px-3 py-2 border rounded text-dark-brown border-dark-brown hover:text-warm-orange hover:border-warm-orange" id="mobile-menu-button">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="hidden lg:hidden mt-4" id="mobile-menu">
+                <a href="../index.html" class="block py-2 text-dark-brown hover:text-warm-orange">메인</a>
+                <a href="about.html" class="block py-2 text-dark-brown hover:text-warm-orange">인사말/학원소개</a>
+                <a href="reviews.html" class="block py-2 text-dark-brown hover:text-warm-orange">수강후기</a>
+                <a href="faq.html" class="block py-2 text-dark-brown hover:text-warm-orange">자주 묻는 질문</a>
+                <a href="contact.html" class="block py-2 text-dark-brown hover:text-warm-orange">예약하기</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <main class="pt-24">
+        <!-- Page Header -->
+        <section class="bg-gradient-to-br from-cream to-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h1 class="text-5xl font-bold text-dark-brown mb-6">프로그램 & 커리큘럼</h1>
+                    <p class="text-xl text-dark-brown/70">체계적이고 전문적인 교육과정으로 여러분의 목표를 달성하세요</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Overview -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Business Program -->
+                    <div class="program-detail bg-gradient-to-br from-white to-cream/30 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center mb-4">
+                                <span class="text-3xl text-white">💼</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-dark-brown">비즈니스 과정</h2>
+                            <p class="text-warm-orange font-semibold mt-2">Business Course</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-dark-brown mb-3">과정 특징</h3>
+                            <ul class="space-y-2 text-dark-brown/80">
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>실무 중심의 비즈니스 스킬</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>기업 협력 프로젝트</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>현직 전문가 멘토링</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>취업 연계 지원</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">교육 기간</p>
+                                    <p class="font-semibold text-dark-brown">3개월</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">주당 수업</p>
+                                    <p class="font-semibold text-dark-brown">12시간</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">수강료</p>
+                                    <p class="font-semibold text-warm-orange">120만원</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">정원</p>
+                                    <p class="font-semibold text-dark-brown">20명</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="block w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                            상담 신청하기
+                        </a>
+                    </div>
+
+                    <!-- Creative Program -->
+                    <div class="program-detail bg-gradient-to-br from-white to-cream/30 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center mb-4">
+                                <span class="text-3xl text-white">🎨</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-dark-brown">창작 과정</h2>
+                            <p class="text-warm-orange font-semibold mt-2">Creative Course</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-dark-brown mb-3">과정 특징</h3>
+                            <ul class="space-y-2 text-dark-brown/80">
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>창의적 사고력 개발</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>다양한 제작 실습</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>개인 포트폴리오 완성</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>전시회 및 발표</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">교육 기간</p>
+                                    <p class="font-semibold text-dark-brown">4개월</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">주당 수업</p>
+                                    <p class="font-semibold text-dark-brown">15시간</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">수강료</p>
+                                    <p class="font-semibold text-warm-orange">150만원</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">정원</p>
+                                    <p class="font-semibold text-dark-brown">15명</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="block w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                            상담 신청하기
+                        </a>
+                    </div>
+
+                    <!-- Technology Program -->
+                    <div class="program-detail bg-gradient-to-br from-white to-cream/30 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center mb-4">
+                                <span class="text-3xl text-white">🔬</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-dark-brown">기술 과정</h2>
+                            <p class="text-warm-orange font-semibold mt-2">Technology Course</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-dark-brown mb-3">과정 특징</h3>
+                            <ul class="space-y-2 text-dark-brown/80">
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>최신 기술 트렌드 학습</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>실무 프로젝트 수행</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>기술 인증 취득 지원</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>테크 기업 취업 연계</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">교육 기간</p>
+                                    <p class="font-semibold text-dark-brown">6개월</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">주당 수업</p>
+                                    <p class="font-semibold text-dark-brown">20시간</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">수강료</p>
+                                    <p class="font-semibold text-warm-orange">200만원</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-dark-brown/60">정원</p>
+                                    <p class="font-semibold text-dark-brown">12명</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="block w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                            상담 신청하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Details -->
+        <section class="py-20 bg-gradient-to-b from-cream/30 to-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-dark-brown mb-6">상세 커리큘럼</h2>
+                    <p class="text-xl text-dark-brown/70">각 과정별 단계적 학습 계획</p>
+                </div>
+                
+                <!-- Curriculum Tabs -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center mb-8">
+                        <div class="bg-white rounded-full p-2 shadow-lg">
+                            <button class="curriculum-tab active px-6 py-3 rounded-full font-semibold transition-all duration-300" data-tab="business">비즈니스 과정</button>
+                            <button class="curriculum-tab px-6 py-3 rounded-full font-semibold transition-all duration-300" data-tab="creative">창작 과정</button>
+                            <button class="curriculum-tab px-6 py-3 rounded-full font-semibold transition-all duration-300" data-tab="technology">기술 과정</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Curriculum -->
+                    <div id="business-curriculum" class="curriculum-content">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="curriculum-month bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center text-white font-bold">
+                                        1
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-dark-brown mt-2">1개월차</h3>
+                                    <p class="text-warm-orange">기초 다지기</p>
+                                </div>
+                                <ul class="space-y-2 text-sm text-dark-brown/80">
+                                    <li>• 비즈니스 기본 개념</li>
+                                    <li>• 시장 분석 방법론</li>
+                                    <li>• 데이터 활용 기초</li>
+                                    <li>• 프레젠테이션 스킬</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="curriculum-month bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center text-white font-bold">
+                                        2
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-dark-brown mt-2">2개월차</h3>
+                                    <p class="text-warm-orange">실무 적용</p>
+                                </div>
+                                <ul class="space-y-2 text-sm text-dark-brown/80">
+                                    <li>• 사업계획서 작성</li>
+                                    <li>• 마케팅 전략 수립</li>
+                                    <li>• 재무 관리 기초</li>
+                                    <li>• 팀워크 프로젝트</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="curriculum-month bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center text-white font-bold">
+                                        3
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-dark-brown mt-2">3개월차</h3>
+                                    <p class="text-warm-orange">완성 단계</p>
+                                </div>
+                                <ul class="space-y-2 text-sm text-dark-brown/80">
+                                    <li>• 최종 프로젝트 수행</li>
+                                    <li>• 기업 연계 실습</li>
+                                    <li>• 포트폴리오 완성</li>
+                                    <li>• 취업 준비 지원</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Class Schedule -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-dark-brown mb-6">수업 시간표</h2>
+                    <p class="text-xl text-dark-brown/70">편리한 시간대별 다양한 수업 선택</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-white shadow-lg rounded-xl overflow-hidden">
+                            <thead class="bg-gradient-to-r from-warm-orange to-deep-brown text-white">
+                                <tr>
+                                    <th class="px-6 py-4 text-left">시간</th>
+                                    <th class="px-6 py-4 text-center">월</th>
+                                    <th class="px-6 py-4 text-center">화</th>
+                                    <th class="px-6 py-4 text-center">수</th>
+                                    <th class="px-6 py-4 text-center">목</th>
+                                    <th class="px-6 py-4 text-center">금</th>
+                                    <th class="px-6 py-4 text-center">토</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-cream/30">
+                                    <td class="px-6 py-4 font-semibold">09:00-12:00</td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm">비즈니스</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm">창작</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm">비즈니스</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm">창작</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                </tr>
+                                <tr class="hover:bg-cream/30">
+                                    <td class="px-6 py-4 font-semibold">14:00-17:00</td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm">창작</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm">비즈니스</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm">창작</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                    <td class="px-6 py-4 text-center">-</td>
+                                </tr>
+                                <tr class="hover:bg-cream/30">
+                                    <td class="px-6 py-4 font-semibold">19:00-22:00</td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm">비즈니스</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm">창작</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm">기술</span></td>
+                                    <td class="px-6 py-4 text-center"><span class="bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm">비즈니스</span></td>
+                                    <td class="px-6 py-4 text-center">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-dark-brown/70 mb-4">* 수업 시간은 개별 상담을 통해 조정 가능합니다</p>
+                        <a href="contact.html" class="inline-block bg-gradient-to-r from-warm-orange to-deep-brown text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                            시간표 상담받기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-brown/95 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-warm-orange to-deep-brown rounded-lg flex items-center justify-center text-white font-bold">
+                            우
+                        </div>
+                        <span class="ml-2 text-xl font-bold">우리교육원</span>
+                    </div>
+                    <p class="text-white/70 text-sm">
+                        믿을 수 있는 교육 파트너로서<br>
+                        여러분의 성공을 함께 만들어갑니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">교육과정</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">비즈니스 과정</a></li>
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">창작 과정</a></li>
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">기술 과정</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">고객지원</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="faq.html" class="hover:text-warm-orange transition-colors">자주 묻는 질문</a></li>
+                        <li><a href="contact.html" class="hover:text-warm-orange transition-colors">상담 예약</a></li>
+                        <li><a href="contact.html#directions" class="hover:text-warm-orange transition-colors">오시는 길</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">소셜미디어</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            📘
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            📷
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            🐦
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-white/20 my-8">
+            
+            <div class="text-center text-sm text-white/70">
+                <p>&copy; 2024 우리교육원. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/scroll-effects.js"></script>
+    
+    <script>
+        // Tab functionality for curriculum
+        document.querySelectorAll('.curriculum-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.curriculum-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

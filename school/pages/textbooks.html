@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="우리교육원에서 사용하는 체계적인 교재를 소개합니다">
+    <meta name="keywords" content="교재, 교육자료, 교육과정, 학습자료">
+    <title>교재 안내 - 우리교육원</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animation libraries -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-orange': '#D97706',
+                        'deep-brown': '#92400E',
+                        'accent-red': '#DC2626',
+                        'cream': '#FEF3C7',
+                        'dark-brown': '#451A03'
+                    },
+                    fontFamily: {
+                        'noto': ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-noto text-dark-brown">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300" id="header">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-deep-brown rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        우
+                    </div>
+                    <span class="ml-3 text-2xl font-bold text-dark-brown">우리교육원</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">메인</a>
+                    <div class="relative group">
+                        <a href="about.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">인사말/학원소개</a>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="teachers.html" class="block px-4 py-2 text-dark-brown hover:bg-cream">강사진 소개</a>
+                            <a href="programs.html" class="block px-4 py-2 text-dark-brown hover:bg-cream">프로그램/커리큘럼</a>
+                            <a href="textbooks.html" class="block px-4 py-2 text-warm-orange font-semibold bg-cream">교재 안내</a>
+                            <a href="contact.html#directions" class="block px-4 py-2 text-dark-brown hover:bg-cream">오시는 길</a>
+                        </div>
+                    </div>
+                    <a href="reviews.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">수강후기</a>
+                    <a href="faq.html" class="nav-link text-dark-brown hover:text-warm-orange transition-colors duration-300">자주 묻는 질문</a>
+                    <a href="contact.html" class="bg-gradient-to-r from-warm-orange to-deep-brown text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">예약하기</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden flex items-center px-3 py-2 border rounded text-dark-brown border-dark-brown hover:text-warm-orange hover:border-warm-orange" id="mobile-menu-button">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="hidden lg:hidden mt-4" id="mobile-menu">
+                <a href="../index.html" class="block py-2 text-dark-brown hover:text-warm-orange">메인</a>
+                <a href="about.html" class="block py-2 text-dark-brown hover:text-warm-orange">인사말/학원소개</a>
+                <a href="reviews.html" class="block py-2 text-dark-brown hover:text-warm-orange">수강후기</a>
+                <a href="faq.html" class="block py-2 text-dark-brown hover:text-warm-orange">자주 묻는 질문</a>
+                <a href="contact.html" class="block py-2 text-dark-brown hover:text-warm-orange">예약하기</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <main class="pt-24">
+        <!-- Page Header -->
+        <section class="bg-gradient-to-br from-cream to-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h1 class="text-5xl font-bold text-dark-brown mb-6">교재 안내</h1>
+                    <p class="text-xl text-dark-brown/70">체계적이고 전문적인 교육 교재로 효율적인 학습을 도와드립니다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Textbook Categories -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-center mb-8">
+                    <div class="bg-cream/50 rounded-full p-2">
+                        <button class="textbook-category-btn active px-6 py-3 rounded-full font-semibold transition-all duration-300" data-category="all">전체</button>
+                        <button class="textbook-category-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-category="business">비즈니스</button>
+                        <button class="textbook-category-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-category="creative">창작</button>
+                        <button class="textbook-category-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-category="technology">기술</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Textbooks -->
+        <section class="pb-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Business Textbook 1 -->
+                    <div class="textbook-item business" data-category="business">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">📊</span>
+                                    <p class="font-bold text-dark-brown">비즈니스 전략</p>
+                                    <p class="text-sm text-dark-brown/70">기초편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm mb-3">비즈니스</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">실무 비즈니스 전략 수립</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">기업 경영 전략의 기본 개념부터 실무 적용까지 체계적으로 학습할 수 있는 교재</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">박미영 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">320쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">35,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Business Textbook 2 -->
+                    <div class="textbook-item business" data-category="business">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">📈</span>
+                                    <p class="font-bold text-dark-brown">마케팅 실무</p>
+                                    <p class="text-sm text-dark-brown/70">응용편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm mb-3">비즈니스</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">디지털 마케팅 완전정복</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">온라인 마케팅부터 SNS 활용법까지 최신 마케팅 트렌드를 반영한 실무서</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">최수연 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">280쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">38,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Creative Textbook 1 -->
+                    <div class="textbook-item creative" data-category="creative">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">🎨</span>
+                                    <p class="font-bold text-dark-brown">디자인 기초</p>
+                                    <p class="text-sm text-dark-brown/70">입문편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm mb-3">창작</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">창의적 디자인 사고법</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">디자인의 기본 원리부터 창의적 아이디어 발상법까지 체계적으로 정리</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">이창호 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">240쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">32,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Creative Textbook 2 -->
+                    <div class="textbook-item creative" data-category="creative">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">🎬</span>
+                                    <p class="font-bold text-dark-brown">영상 제작</p>
+                                    <p class="text-sm text-dark-brown/70">실습편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm mb-3">창작</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">스토리텔링과 영상 편집</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">스토리 구성부터 영상 편집까지 실무에 필요한 모든 과정을 담은 종합서</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">정민석 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">360쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">42,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Technology Textbook 1 -->
+                    <div class="textbook-item technology" data-category="technology">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">💻</span>
+                                    <p class="font-bold text-dark-brown">웹 개발</p>
+                                    <p class="text-sm text-dark-brown/70">기초편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm mb-3">기술</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">모던 웹 개발 완벽 가이드</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">HTML, CSS, JavaScript부터 최신 프레임워크까지 웹 개발의 모든 것</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">김태준 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">450쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">45,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Technology Textbook 2 -->
+                    <div class="textbook-item technology" data-category="technology">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">🤖</span>
+                                    <p class="font-bold text-dark-brown">AI/ML</p>
+                                    <p class="text-sm text-dark-brown/70">응용편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm mb-3">기술</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">실무 AI와 데이터 사이언스</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">Python을 활용한 머신러닝과 딥러닝 실무 프로젝트 중심 교재</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">한지윤 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">380쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">48,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Business Book -->
+                    <div class="textbook-item business" data-category="business">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">💼</span>
+                                    <p class="font-bold text-dark-brown">프로젝트 관리</p>
+                                    <p class="text-sm text-dark-brown/70">실무편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-warm-orange/20 text-warm-orange px-3 py-1 rounded-full text-sm mb-3">비즈니스</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">애자일 프로젝트 관리</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">현대적 프로젝트 관리 방법론과 실무 적용 사례를 담은 종합 가이드</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">최수연 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">300쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">36,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Creative Book -->
+                    <div class="textbook-item creative" data-category="creative">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">✏️</span>
+                                    <p class="font-bold text-dark-brown">UX/UI 디자인</p>
+                                    <p class="text-sm text-dark-brown/70">심화편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-deep-brown/20 text-deep-brown px-3 py-1 rounded-full text-sm mb-3">창작</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">사용자 중심 디자인 씽킹</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">UX 리서치부터 UI 프로토타이핑까지 실무 프로젝트 중심 학습서</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">이창호 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">320쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">40,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Technology Book -->
+                    <div class="textbook-item technology" data-category="technology">
+                        <div class="textbook-card bg-gradient-to-br from-white to-cream/30 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="aspect-[3/4] bg-gradient-to-br from-warm-orange/20 to-deep-brown/20 rounded-2xl mb-6 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-4xl mb-2 block">☁️</span>
+                                    <p class="font-bold text-dark-brown">클라우드</p>
+                                    <p class="text-sm text-dark-brown/70">실무편</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <span class="inline-block bg-accent-red/20 text-accent-red px-3 py-1 rounded-full text-sm mb-3">기술</span>
+                                <h3 class="text-xl font-bold text-dark-brown mb-2">클라우드 아키텍처와 DevOps</h3>
+                                <p class="text-dark-brown/70 text-sm mb-3">AWS, Azure 등 주요 클라우드 플랫폼 활용법과 자동화 기법</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">저자</span>
+                                    <span class="text-dark-brown">김태준 교수</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">페이지</span>
+                                    <span class="text-dark-brown">420쪽</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-dark-brown/60">가격</span>
+                                    <span class="text-warm-orange font-bold">50,000원</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-warm-orange to-deep-brown text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                상세 보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Info -->
+        <section class="py-20 bg-gradient-to-b from-cream/30 to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-dark-brown mb-6">교재 구매 안내</h2>
+                        <p class="text-xl text-dark-brown/70">편리하고 다양한 방법으로 교재를 구매하실 수 있습니다</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="purchase-method bg-white p-8 rounded-3xl shadow-lg">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center mb-4">
+                                    <span class="text-2xl text-white">🏪</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-dark-brown">원내 구매</h3>
+                                <p class="text-dark-brown/70">학원 방문하여 직접 구매</p>
+                            </div>
+                            <ul class="space-y-3 text-dark-brown/80">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    현금/카드 결제 가능
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    수강생 10% 할인
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    즉시 수령 가능
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="purchase-method bg-white p-8 rounded-3xl shadow-lg">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-warm-orange to-deep-brown rounded-full mx-auto flex items-center justify-center mb-4">
+                                    <span class="text-2xl text-white">📦</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-dark-brown">온라인 주문</h3>
+                                <p class="text-dark-brown/70">온라인 주문 후 배송</p>
+                            </div>
+                            <ul class="space-y-3 text-dark-brown/80">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    24시간 주문 가능
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    3만원 이상 무료 배송
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-warm-orange rounded-full mr-3"></span>
+                                    1-2일 내 배송
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center bg-gradient-to-r from-warm-orange/10 to-deep-brown/10 p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold text-dark-brown mb-4">📚 패키지 할인</h3>
+                        <p class="text-dark-brown/80 mb-6">같은 과정의 모든 교재를 함께 구매하시면 추가 할인 혜택을 드립니다</p>
+                        <div class="grid md:grid-cols-3 gap-4 text-center">
+                            <div class="bg-white p-4 rounded-xl">
+                                <p class="font-semibold text-warm-orange">비즈니스 패키지</p>
+                                <p class="text-2xl font-bold text-dark-brown">109,000원</p>
+                                <p class="text-sm text-dark-brown/60">(정가 대비 15% 할인)</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl">
+                                <p class="font-semibold text-deep-brown">창작 패키지</p>
+                                <p class="text-2xl font-bold text-dark-brown">114,000원</p>
+                                <p class="text-sm text-dark-brown/60">(정가 대비 15% 할인)</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl">
+                                <p class="font-semibold text-accent-red">기술 패키지</p>
+                                <p class="text-2xl font-bold text-dark-brown">143,000원</p>
+                                <p class="text-sm text-dark-brown/60">(정가 대비 15% 할인)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="contact.html" class="inline-block bg-gradient-to-r from-warm-orange to-deep-brown text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                                교재 구매 문의하기
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-brown/95 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-warm-orange to-deep-brown rounded-lg flex items-center justify-center text-white font-bold">
+                            우
+                        </div>
+                        <span class="ml-2 text-xl font-bold">우리교육원</span>
+                    </div>
+                    <p class="text-white/70 text-sm">
+                        믿을 수 있는 교육 파트너로서<br>
+                        여러분의 성공을 함께 만들어갑니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">교육과정</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">비즈니스 과정</a></li>
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">창작 과정</a></li>
+                        <li><a href="programs.html" class="hover:text-warm-orange transition-colors">기술 과정</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">고객지원</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="faq.html" class="hover:text-warm-orange transition-colors">자주 묻는 질문</a></li>
+                        <li><a href="contact.html" class="hover:text-warm-orange transition-colors">상담 예약</a></li>
+                        <li><a href="contact.html#directions" class="hover:text-warm-orange transition-colors">오시는 길</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">소셜미디어</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            📘
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            📷
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors duration-300">
+                            🐦
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-white/20 my-8">
+            
+            <div class="text-center text-sm text-white/70">
+                <p>&copy; 2024 우리교육원. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/scroll-effects.js"></script>
+    
+    <script>
+        // Category filtering
+        document.querySelectorAll('.textbook-category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active button
+                document.querySelectorAll('.textbook-category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter textbooks
+                document.querySelectorAll('.textbook-item').forEach(item => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
