@@ -34,7 +34,7 @@
         .accent-text {
             color: #6B7280;
         }
-        .hero-title, .hero-subtitle, .hero-text, .hero-cta {
+        .hero-title, .hero-subtitle, .hero-text, .hero-cta, .hero-stats, .hero-stat-item {
             opacity: 0;
         }
         /* Base animation styles */
@@ -162,6 +162,27 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
+        
+        /* Hero background animation */
+        .hero-bg-image {
+            animation: heroBackground 20s ease-in-out infinite;
+            transform-origin: center center;
+        }
+        
+        @keyframes heroBackground {
+            0%, 100% { 
+                transform: scale(1.05) translate(0, 0);
+            }
+            25% { 
+                transform: scale(1.08) translate(-1%, -1%);
+            }
+            50% { 
+                transform: scale(1.06) translate(1%, 0.5%);
+            }
+            75% { 
+                transform: scale(1.07) translate(-0.5%, 1%);
+            }
+        }
         .glass-effect {
             backdrop-filter: blur(10px);
             background: rgba(0, 0, 0, 0.05);
@@ -197,10 +218,16 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
         }
         .faq-answer.active {
-            max-height: 200px;
+            max-height: 1000px;
+            opacity: 1;
+            padding-top: 0;
+            padding-bottom: 1.5rem;
         }
         .social-grid {
             display: grid;
@@ -260,23 +287,47 @@
 <!-- 1. Hero Section -->
 <section id="hero" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
     <div class="absolute inset-0">
-        <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30">
+        <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30 hero-bg-image">
     </div>
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="container mx-auto px-6 relative z-10 text-center">
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 text-white hero-title leading-tight">
-            <span class="number-highlight">10명 중 8명</span>이 구매하는<br>
-            병원 마케팅 솔루션
+            <span class="number-highlight">의료진이 먼저 인정한</span>
+            마케팅 솔루션
         </h1>
         <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-6 md:mb-8 hero-subtitle font-semibold">
-            오로지, <span class="text-white font-bold">매출로만 얘기</span>합니다.
+            오직, <span class="text-white font-bold">환자 증가, 매출 상승으로만 증명</span>합니다.
         </h2>
         <p class="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 md:mb-12 max-w-3xl mx-auto hero-text leading-relaxed">
-            병원 전문 마케팅 에이전시, <strong>레어핏</strong>
+            <u>실제로 환자가 늘어나는 마케팅만 합니다.</u>
         </p>
         <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
             무료 상담 신청하기
         </button>
+        
+        <!-- Hero Stats Section -->
+        <div class="hero-stats mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
+                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+                    <span class="hero-stat-number text-purple-600" data-target="50">0</span><span class="text-black">+</span>
+                </div>
+                <div class="text-base md:text-lg text-gray-700 font-medium">프로젝트 완료 수</div>
+            </div>
+
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
+                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+                    <span class="hero-stat-number text-purple-600" data-target="96.8">0</span><span class="text-black">%</span>
+                </div>
+                <div class="text-base md:text-lg text-gray-700 font-medium">고객 재계약률</div>
+            </div>
+            
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
+                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+                    <span class="hero-stat-number text-purple-600" data-target="4.9">0</span><span class="text-black">점</span>
+                </div>
+                <div class="text-base md:text-lg text-gray-700 font-medium">고객 만족도</div>
+            </div>
+        </div>
     </div>
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 floating">
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -289,6 +340,11 @@
 <section id="about" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    Who is Rarefit?
+                </span>
+            </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element fade-down">
                 레어핏 소개
             </h2>
@@ -302,8 +358,7 @@
                 <div class="glass-effect rounded-2xl p-8">
                     <h3 class="text-3xl font-bold mb-6 gradient-text animate-element fade-up">레어핏은</h3>
                     <p class="text-xl text-black mb-8 leading-relaxed font-medium animate-element fade-up stagger-1">
-                        고객이 '<span class="gradient-text">찾아올 수밖에 없는 이유</span>'를<br>
-                        함께 찾습니다.
+                        고객이 '<span class="gradient-text">찾아올 수밖에 없는 이유</span>'를 만듭니다.
                     </p>
                     <div class="space-y-4 text-gray-600">
                         <div class="flex items-center animate-element fade-left stagger-2">
@@ -344,10 +399,15 @@
 <section id="reviews" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    User Reviews
+                </span>
+            </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element zoom-in">
                 레어핏 실제 고객 후기
             </h2>
-            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">신뢰할 수 있는 실제 후기들</p>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">조작없는 생생한 실제 후기들</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -380,23 +440,52 @@
                 </p>
                 <div class="text-gray-400 font-medium">- 클리닉 대표</div>
             </div>
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-1">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "사실 업종 하면서 블로그 관리를 꾸준히 한다는 건 정말 어려운 일입니다..."
+                </p>
+                <div class="text-gray-400 font-medium">- 병원 원장님</div>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-2">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "운영 방침을 위해 같이 고민해주시고, 힘써주시고 진짜 최고세요..."
+                </p>
+                <div class="text-gray-400 font-medium">- 의료진 관계자</div>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 animate-element fade-up stagger-3">
+                <div class="flex mb-6">
+                    <div class="text-yellow-400 text-2xl">★★★★★</div>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                    "작가님이랑 부씨 수개월째 블로그작업 함께 하고 있습니다..."
+                </p>
+                <div class="text-gray-400 font-medium">- 클리닉 대표</div>
+            </div>
         </div>
 
         <!-- Stats Section -->
-        <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">
-            <div class="animate-element scale-in stagger-1">
-                <div class="stats-counter text-black mb-4" data-target="87">0</div>
-                <p class="text-xl text-gray-600">고객 만족도 (%)</p>
-            </div>
-            <div class="animate-element scale-in stagger-2">
-                <div class="stats-counter text-black mb-4" data-target="150">0</div>
-                <p class="text-xl text-gray-600">완료한 프로젝트</p>
-            </div>
-            <div class="animate-element scale-in stagger-3">
-                <div class="stats-counter text-black mb-4" data-target="24">0</div>
-                <p class="text-xl text-gray-600">평균 응답 시간 (시간)</p>
-            </div>
-        </div>
+<!--        <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">-->
+<!--            <div class="animate-element scale-in stagger-1">-->
+<!--                <div class="stats-counter text-black mb-4" data-target="87">0</div>-->
+<!--                <p class="text-xl text-gray-600">고객 만족도 (%)</p>-->
+<!--            </div>-->
+<!--            <div class="animate-element scale-in stagger-2">-->
+<!--                <div class="stats-counter text-black mb-4" data-target="150">0</div>-->
+<!--                <p class="text-xl text-gray-600">완료한 프로젝트</p>-->
+<!--            </div>-->
+<!--            <div class="animate-element scale-in stagger-3">-->
+<!--                <div class="stats-counter text-black mb-4" data-target="24">0</div>-->
+<!--                <p class="text-xl text-gray-600">평균 응답 시간 (시간)</p>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </section>
 
@@ -404,101 +493,252 @@
 <section id="services" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    Our Approach
+                </span>
+            </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
-                모던한 디자인 메시지의 강력함
+                레어핏의 2가지 핵심 접근법
             </h2>
-            <p class="text-2xl text-gray-600 reveal-element">Modern & Simple</p>
+            <p class="text-xl text-gray-600 reveal-element">브랜드의 철학을 고객의 언어로 전환합니다</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center reveal-element group">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gray-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- 첫 번째 접근법 -->
+            <div class="reveal-element">
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold text-purple-600 mb-2 block">01</span>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-black">'고객이 누구인가'</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-purple-600 mb-3">브랜딩 컨셉 기획 - 고객 여정 분석</h4>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            브랜드의 철학, 서비스 방식, 핵심 차별점을 <strong>고객의 언어로 전환</strong>합니다.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mt-3 flex-shrink-0"></div>
+                            <div>
+                                <h5 class="font-bold text-black mb-1">🎯 브랜드 인지 단계</h5>
+                                <p class="text-gray-600 text-sm">우리 브랜드를 처음 접하고 인지하는 단계</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mt-3 flex-shrink-0"></div>
+                            <div>
+                                <h5 class="font-bold text-black mb-1">🔍 탐색·비교 단계</h5>
+                                <p class="text-gray-600 text-sm">다른 브랜드와 서비스를 탐색하고 비교하는 단계</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mt-3 flex-shrink-0"></div>
+                            <div>
+                                <h5 class="font-bold text-black mb-1">💭 구매 전 의사결정 단계</h5>
+                                <p class="text-gray-600 text-sm">브랜드에 호감을 갖거나 이차 구매를 망설이는 단계</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mt-3 flex-shrink-0"></div>
+                            <div>
+                                <h5 class="font-bold text-black mb-1">📞 문의·전화 단계</h5>
+                                <p class="text-gray-600 text-sm">브랜드 신뢰도와 결정 이유를 제공하여 문의 연결</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">디지털 마케팅</h3>
-                <p class="text-gray-600 leading-relaxed text-lg">
-                    현대적이고 세련된 디지털 마케팅 전략으로 고객의 브랜드를 차별화합니다.
-                </p>
             </div>
 
-            <div class="text-center reveal-element group">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">브랜드 전략</h3>
-                <p class="text-gray-600 leading-relaxed text-lg">
-                    고객의 마음을 움직이는 브랜드 스토리텔링과 감성적 연결을 구축합니다.
-                </p>
-            </div>
+            <!-- 두 번째 접근법 -->
+            <div class="reveal-element">
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold text-purple-600 mb-2 block">02</span>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-black">'처음부터 끝까지<br>우리를 어떻게 마주치는가'</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-purple-600 mb-3">퍼널 설정 - 고객 접점 최적화</h4>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            고객이 가지고 있는 절실함을 글로 다듬어 <strong>고객의 언어로 전환</strong>합니다.
+                        </p>
+                    </div>
 
-            <div class="text-center reveal-element group">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gray-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 rounded-xl p-4">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded-full">01단계</span>
+                                <h5 class="font-bold text-black">📱 SNS·플랫폼</h5>
+                            </div>
+                            <p class="text-gray-600 text-sm">브랜드 인지도 확산, 전문성과 차별점을 명확히 전달</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-xl p-4">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded-full">02단계</span>
+                                <h5 class="font-bold text-black">⬇️ 카페·친구·배포 블로그</h5>
+                            </div>
+                            <p class="text-gray-600 text-sm">신뢰도 구축 및 전문성 입증, 가치 있는 콘텐츠 제공</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-xl p-4">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded-full">03단계</span>
+                                <h5 class="font-bold text-black">⬇️ 브랜드 블로그</h5>
+                            </div>
+                            <p class="text-gray-600 text-sm">브랜드 전문성 강화, 구체적인 성과와 사례로 신뢰감 조성</p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">성과 분석</h3>
-                <p class="text-gray-600 leading-relaxed text-lg">
-                    데이터 기반의 정확한 성과 측정과 지속적인 개선 방안을 제시합니다.
-                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 5. Key Features Section -->
+<!-- 5. Branding Section -->
 <section id="features" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    Grow Your Brand
+                </span>
+            </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element slide-up">
-                Innovative Solutions - Key Features
+                브랜딩 기획
             </h2>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">
+                단순히 글만 올리는 작업이 아니라, 매출로 연결되는 전략적 마케팅
+            </p>
         </div>
 
-        <div class="space-y-16">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-element fade-right">
-                    <div class="text-6xl font-bold text-gray-500/20 mb-4">01</div>
-                    <h3 class="text-3xl font-bold gradient-text mb-6">Custom Designs</h3>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        레어핏은 고객의 요구에 맞춘 맞춤형 디자인을 제공합니다.
-                        각 프로젝트마다 고유한 접근법을 통해 최적의 결과를 창출합니다.
-                    </p>
-                </div>
-                <div class="animate-element fade-left stagger-1">
-                    <img src="design/img1.png" alt="Custom Design" class="w-full rounded-2xl shadow-2xl">
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-element fade-right stagger-1 order-2 lg:order-1">
-                    <img src="design/img2.png" alt="Quality Assurance" class="w-full rounded-2xl shadow-2xl">
-                </div>
-                <div class="animate-element fade-left order-1 lg:order-2">
-                    <div class="text-6xl font-bold text-gray-500/20 mb-4">02</div>
-                    <h3 class="text-3xl font-bold gradient-text mb-6">Quality Assurance</h3>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        우리는 최고의 품질을 보장하기 위해 엄격한 관리 시스템을 운영합니다.
-                        모든 단계에서 철저한 검토와 테스트를 통해 완벽한 결과물을 제공합니다.
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div class="animate-element fade-up stagger-1">
+                <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-3xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-black mb-3">✅ 전략적 사고</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        매 콘텐츠가 최종 매출로 연결되는 구조 설계
                     </p>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-element fade-right">
-                    <div class="text-6xl font-bold text-gray-500/20 mb-4">03</div>
-                    <h3 class="text-3xl font-bold gradient-text mb-6">Sustainable Practices</h3>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        환경을 생각하는 지속 가능한 방법을 통해 사업에 긍정적인 영향을 미칩니다.
-                        장기적인 성장을 위한 전략적 접근법을 제시합니다.
+            <div class="animate-element fade-up stagger-2">
+                <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-3xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-black mb-3">✅ 고객 중심</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        브랜드가 아닌 고객의 언어와 관점에서 접근
                     </p>
                 </div>
-                <div class="animate-element fade-left stagger-1">
-                    <img src="design/img3.png" alt="Sustainable Practices" class="w-full rounded-2xl shadow-2xl">
+            </div>
+
+            <div class="animate-element fade-up stagger-3">
+                <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-3xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-black mb-3">✅ 데이터 검증</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        감정에 의존하지 않는 논리적 근거 기반 전략
+                    </p>
+                </div>
+            </div>
+
+            <div class="animate-element fade-up stagger-4">
+                <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-3xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-black mb-3">✅ 협업 문화</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        일방적 대행이 아닌 파트너십 기반 진행
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 브랜드 블로그 핵심 전략 -->
+        <div class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl p-8 lg:p-12 text-white animate-element scale-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">🎯 브랜드 블로그 핵심 전략</h2>
+                <p class="text-xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
+                    "실제 검색자들이 고민하는 '질문'을 바탕으로 감정과 논리를 모두 활용한 심리적 글쓰기를 기획합니다."
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        📊 <span class="ml-3">데이터 기반 접근</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">서비스가 필요한 타겟 공략</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">타겟의 실제 고민·절망 수집</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">감정 ↔논리 ↔의심계 3단계 심리장치</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        🔄 <span class="ml-3">지속적 최적화</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">실제 고객 피드백 반영</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">검색 트렌드 분석</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <p class="text-purple-100">컨텐츠 성과 측정 및 개선</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,187 +750,1490 @@
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element flip-up">
-                레어핏은 창의적이고 혁신적인<br>마케팅 솔루션을 제공합니다
+                왜 레어핏이 다른가요?
             </h2>
-            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">고객의 브랜드를 성공적으로 구축합니다</p>
+            <p class="text-xl text-gray-600 animate-element fade-up stagger-1 max-w-3xl mx-auto leading-relaxed">
+                <strong>90% 이상이 소수로 착각하지만, 고객분들이 실제로 원하는 것</strong>
+            </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                    </svg>
+        <!-- 3가지 핵심 차별점 -->
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+            <!-- 첫 번째 차별점 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-1">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">1️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black mb-4">패키지 결제를<br>유도하지 않습니다</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">브랜드 인지도</h3>
-                <p class="text-gray-600 leading-relaxed">레어핏 고객의 브랜드 인지도를 높이는 데 중점을 둡니다</p>
+                <div class="bg-red-50 rounded-xl p-4 mb-6">
+                    <p class="text-red-700 font-bold text-sm text-center">
+                        "제대로 된 업계 공부 없이<br>짜깁기 글을 쓰지 않습니다"
+                    </p>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-red-500 mt-1">•</span>
+                        <p>글만 올리는 게 아니라 마케팅 전략을 먼저 세움</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-red-500 mt-1">•</span>
+                        <p>업계를 깊이 공부한 후 맞춤형 내용 작성</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-red-500 mt-1">•</span>
+                        <p>대충 만든 내용이 아니라 철저히 조사한 후 작성</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
-                    </svg>
+            <!-- 두 번째 차별점 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-2">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">2️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black mb-4">대표님과 협의 없이<br>무성의한 글을 올리지 않습니다</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">소셜 미디어</h3>
-                <p class="text-gray-600 leading-relaxed">소셜 미디어를 통한 고객의 소통을 강화하고 브랜드의 영향력을 확대합니다</p>
+                <div class="bg-blue-50 rounded-xl p-4 mb-6">
+                    <p class="text-blue-700 font-bold text-sm text-center">
+                        "자신만의 철학과 가치관이<br>뚜렷하신 대표님"
+                    </p>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-500 mt-1">•</span>
+                        <p>모든 글은 대표님과 함께 상의해서 완성</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-500 mt-1">•</span>
+                        <p>브랜드 가치에 맞는 메시지만 전달</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-500 mt-1">•</span>
+                        <p>단순 작업자가 아니라 마케팅 파트너 역할</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
+            <!-- 세 번째 차별점 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-3">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">3️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black mb-4">마케팅을 제대로<br>이해하는 분과 함께</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">성과 분석</h3>
-                <p class="text-gray-600 leading-relaxed">성과 분석을 통해 마케팅 전략의 효율성을 평가하고 개선점을 찾아냅니다</p>
+                <div class="bg-green-50 rounded-xl p-4 mb-6">
+                    <p class="text-green-700 font-bold text-sm text-center">
+                        "자료나 진행 방향에 대해<br>적극적으로 협조해주시는 분"
+                    </p>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-500 mt-1">•</span>
+                        <p>매출을 늘리기 위한 전략적 사고</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-500 mt-1">•</span>
+                        <p>데이터와 근거로 의사결정</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-500 mt-1">•</span>
+                        <p>장기적으로 브랜드를 키워나가는 체계적 접근</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 솔직한 메시지 -->
+        <div class="bg-gradient-to-r from-gray-800 to-black rounded-3xl p-8 lg:p-12 text-white text-center animate-element scale-in mb-16">
+            <h3 class="text-2xl lg:text-3xl font-bold mb-6">
+                🔥 마케팅 회사들이 절대 말하지 않는 진실
+            </h3>
+            <p class="text-xl lg:text-2xl text-yellow-300 font-bold mb-4">
+                "좋은 글만으로는 매출이 안 나옵니다"
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div class="text-left">
+                    <p class="text-gray-300 mb-2">❌ <strong>다른 회사들</strong></p>
+                    <p class="text-red-300 text-sm">• 예쁜 글만 써드려요<br>• 조회수만 올려드려요<br>• 브랜딩이 중요해요</p>
+                </div>
+                <div class="text-left">
+                    <p class="text-gray-300 mb-2">✅ <strong>레어핏</strong></p>
+                    <p class="text-green-300 text-sm">• 매출로 연결되는 글을 씁니다<br>• 실제 고객이 오게 만듭니다<br>• 결과로 증명합니다</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 우리 고객은 누구인가요? -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-8 animate-element slide-up">
+                어떤 분들이 레어핏과 함께하나요?
+            </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- 병원·의료진 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-1">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">🏥</div>
+                    <h3 class="text-xl font-bold text-black mb-4">병원·의료진</h3>
+                    <p class="text-gray-500 text-sm">"매출 고민이 깊은 개원의"</p>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="bg-red-50 rounded-lg p-3">
+                        <p class="text-red-600">"우리 병원만의 차별점이 뭔지 모르겠어요"</p>
+                    </div>
+                    <div class="bg-red-50 rounded-lg p-3">
+                        <p class="text-red-600">"환자들이 왜 다른 병원을 선택하는지 궁금해요"</p>
+                    </div>
+                    <div class="bg-red-50 rounded-lg p-3">
+                        <p class="text-red-600">"블로그를 해야 한다는 건 알겠는데, 뭘 써야 할지..."</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <p class="text-blue-700 font-bold text-sm text-center">
+                        ✅ 의료진의 전문성을 환자가 이해하는 언어로 번역
+                    </p>
+                </div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                    </svg>
+            <!-- 전문직 서비스업 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-2">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">💼</div>
+                    <h3 class="text-xl font-bold text-black mb-4">전문직 서비스업</h3>
+                    <p class="text-gray-500 text-sm">"차별화가 어려운 서비스업 대표"</p>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">고객 만족</h3>
-                <p class="text-gray-600 leading-relaxed">고객 만족을 최우선으로 생각하며, 맞춤형 솔루션을 제공합니다</p>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="bg-orange-50 rounded-lg p-3">
+                        <p class="text-orange-600">"경쟁업체와 뭐가 다른지 설명하기 어려워요"</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-lg p-3">
+                        <p class="text-orange-600">"가격으로만 경쟁하기엔 한계가 있어요"</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-lg p-3">
+                        <p class="text-orange-600">"고객이 우리를 선택할 이유를 만들고 싶어요"</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <p class="text-blue-700 font-bold text-sm text-center">
+                        ✅ 서비스 과정과 결과를 눈에 보이게 만들어 차별화
+                    </p>
+                </div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
+            <!-- 고관여 업종 -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 animate-element fade-up stagger-3">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-black mb-4">고관여 업종</h3>
+                    <p class="text-gray-500 text-sm">"신중한 고객을 상대하는 업종"</p>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">혁신적인 전략</h3>
-                <p class="text-gray-600 leading-relaxed">혁신적인 전략을 통해 시장에서 경쟁력을 확보하고 고객 브랜드를 차별화합니다</p>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="bg-purple-50 rounded-lg p-3">
+                        <p class="text-purple-600">"고객이 결정하기까지 시간이 너무 오래 걸려요"</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-3">
+                        <p class="text-purple-600">"상담 신청은 많은데 계약으로 이어지지 않아요"</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-3">
+                        <p class="text-purple-600">"고객의 불안감을 어떻게 해소해야 할지..."</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <p class="text-blue-700 font-bold text-sm text-center">
+                        ✅ 단계별 고객 여정 설계와 심리적 장치로 불안 해소
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 마지막 메시지 -->
+        <div class="text-center mt-16 animate-element fade-up">
+            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto">
+                <h3 class="text-2xl lg:text-3xl font-bold text-black mb-6">
+                    솔직히 말씀드리면...
+                </h3>
+                <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                    <strong>"우리도 만능이 아닙니다."</strong><br>
+                    하지만 우리가 하는 것만큼은 확실히 해드립니다.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h4 class="font-bold text-green-600 mb-2">✅ 우리가 잘하는 것</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 매출로 연결되는 전략 설계</li>
+                            <li>• 고객 심리를 파악한 글쓰기</li>
+                            <li>• 브랜드만의 차별점 찾기</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h4 class="font-bold text-red-600 mb-2">❌ 우리가 안 하는 것</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 그냥 예쁘기만 한 글</li>
+                            <li>• 조회수만 늘리는 작업</li>
+                            <li>• 협의 없는 일방적 진행</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Marketing Solutions Section -->
+<section id="marketing-solution" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    Our Solutions
+                </span>
+            </div>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4 animate-element slide-up leading-tight">
+                매출이 나오는 마케팅에는<br>
+                <span class="gradient-text">순서가 있습니다</span>
+            </h2>
+            <p class="text-xl sm:text-2xl text-gray-600 animate-element fade-up stagger-1 max-w-4xl mx-auto leading-relaxed font-medium mt-6">
+                고객이 우리를 찾아오는 <strong class="text-purple-700 gradient-text">4단계 시스템</strong>
+            </p>
+        </div>
+
+        <!-- 4가지 핵심 솔루션 -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+            <!-- 1단계: 채널별 퍼널 셋팅 -->
+            <div class="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-xl border border-purple-100 animate-element fade-up stagger-1">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-4xl font-bold text-purple-600 mb-2 block">1️⃣</span>
+                        <h3 class="text-xl lg:text-2xl font-bold text-black">고객이 찾아올 수밖에 없는 길 만들기</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-100 rounded-xl p-4 mb-6">
+                    <p class="text-purple-700 font-bold text-sm">
+                        💡 <strong>쉽게 말하면:</strong><br>
+                        "마트에서 과자 코너로 가는 길처럼, 고객이 우리 병원을 자연스럽게 찾아오는 길을 만들어요"
+                    </p>
+                </div>
+
+                <div class="space-y-3 text-sm text-gray-700 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <p>SNS에서 관심 끌기 → 블로그로 신뢰 쌓기 → 전화상담 유도</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <p>각 단계별 맞춤 메시지로 고객 마음 사로잡기</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-purple-600 mt-1">•</span>
+                        <p>"어? 이 병원 괜찮네?"에서 "여기서 치료받고 싶다!"까지</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-xs text-gray-600 font-medium">📊 예시 경로</p>
+                    <div class="flex items-center mt-2 text-xs text-gray-700">
+                        <span class="bg-pink-100 px-2 py-1 rounded">인스타그램</span>
+                        <span class="mx-2">→</span>
+                        <span class="bg-green-100 px-2 py-1 rounded">네이버 블로그</span>
+                        <span class="mx-2">→</span>
+                        <span class="bg-blue-100 px-2 py-1 rounded">병원 홈페이지</span>
+                        <span class="mx-2">→</span>
+                        <span class="bg-purple-100 px-2 py-1 rounded">전화 예약</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass-effect rounded-2xl p-8 animate-element scale-in stagger-1">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                    </svg>
+            <!-- 2단계: 블로그 퍼널 셋팅 -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-xl border border-blue-100 animate-element fade-up stagger-2">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-4xl font-bold text-blue-600 mb-2 block">2️⃣</span>
+                        <h3 class="text-xl lg:text-2xl font-bold text-black">검색하면 우리가 1등으로 나오게 하기</h3>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-4 gradient-text">브랜드 성장</h3>
-                <p class="text-gray-600 leading-relaxed">브랜드 성장을 가속화하기 위해 맞춤형 마케팅 캠페인을 계획하고 실행합니다</p>
+                
+                <div class="bg-blue-100 rounded-xl p-4 mb-6">
+                    <p class="text-blue-700 font-bold text-sm">
+                        💡 <strong>쉽게 말하면:</strong><br>
+                        "배가 아플 때 '복통 원인'을 검색하면 우리 병원 글이 맨 위에 나와서 클릭하게 만들어요"
+                    </p>
+                </div>
+
+                <div class="space-y-3 text-sm text-gray-700 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-600 mt-1">•</span>
+                        <p>환자들이 실제로 검색하는 단어로 글 작성</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-600 mt-1">•</span>
+                        <p>"병원 찾고 있었는데 딱 맞네!" 느끼게 만드는 내용</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-blue-600 mt-1">•</span>
+                        <p>읽다보면 자연스럽게 "여기 괜찮네?" 생각하게 하기</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-xs text-gray-600 font-medium mb-2">📊 3단계 블로그 전략</p>
+                    <div class="space-y-2 text-xs text-gray-700">
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold mr-2">1</span>
+                            <span>호기심 자극 (예: "이런 증상이면 위험신호!")</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-xs font-bold mr-2">2</span>
+                            <span>전문성 보여주기 (예: "○○치료, 이렇게 하면 됩니다")</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold mr-2">3</span>
+                            <span>행동 유도 (예: "무료 상담 받아보세요")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3단계: 성과 분석 -->
+            <div class="bg-gradient-to-br from-green-50 to-white rounded-3xl p-8 shadow-xl border border-green-100 animate-element fade-up stagger-3">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-4xl font-bold text-green-600 mb-2 block">3️⃣</span>
+                        <h3 class="text-xl lg:text-2xl font-bold text-black">숫자로 증명하는 진짜 효과</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-green-100 rounded-xl p-4 mb-6">
+                    <p class="text-green-700 font-bold text-sm">
+                        💡 <strong>쉽게 말하면:</strong><br>
+                        "시험 점수 보듯이 마케팅 점수를 확인해서 뭐가 잘됐고 뭘 고쳐야 하는지 정확히 알려드려요"
+                    </p>
+                </div>
+
+                <div class="space-y-3 text-sm text-gray-700 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">•</span>
+                        <p>매달 리포트로 변화 한눈에 확인</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">•</span>
+                        <p>"이번 달 환자 문의 30% 증가!" 같은 구체적 수치</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">•</span>
+                        <p>어떤 글이 인기였는지, 어떤 키워드가 효과적인지 분석</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-xs text-gray-600 font-medium mb-2">📊 측정 지표</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-700">
+                        <div class="flex items-center">
+                            <span class="text-green-600 mr-1">✓</span>
+                            <span>블로그 방문자 수</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-600 mr-1">✓</span>
+                            <span>전화 문의 수</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-600 mr-1">✓</span>
+                            <span>예약 전환율</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-600 mr-1">✓</span>
+                            <span>매출 증가율</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4단계: 전략 재수립 -->
+            <div class="bg-gradient-to-br from-orange-50 to-white rounded-3xl p-8 shadow-xl border border-orange-100 animate-element fade-up stagger-4">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-4xl font-bold text-orange-600 mb-2 block">4️⃣</span>
+                        <h3 class="text-xl lg:text-2xl font-bold text-black">안 되는 건 바꾸고, 잘 되는 건 더 키우기</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-100 rounded-xl p-4 mb-6">
+                    <p class="text-orange-700 font-bold text-sm">
+                        💡 <strong>쉽게 말하면:</strong><br>
+                        "축구 경기 하프타임에 작전 바꾸듯이, 매달 결과 보고 더 잘 되는 방법으로 바꿔가요"
+                    </p>
+                </div>
+
+                <div class="space-y-3 text-sm text-gray-700 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-orange-600 mt-1">•</span>
+                        <p>효과 없는 방법은 과감히 포기</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-orange-600 mt-1">•</span>
+                        <p>잘 되는 부분은 더 강화해서 큰 효과 만들기</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-orange-600 mt-1">•</span>
+                        <p>새로운 트렌드와 고객 반응 즉시 반영</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-xs text-gray-600 font-medium mb-2">🔄 개선 사이클</p>
+                    <div class="flex items-center text-xs text-gray-700 flex-wrap">
+                        <span class="bg-orange-100 px-2 py-1 rounded mr-1 mb-1">월말 분석</span>
+                        <span class="mx-1">→</span>
+                        <span class="bg-red-100 px-2 py-1 rounded mr-1 mb-1">문제점 찾기</span>
+                        <span class="mx-1">→</span>
+                        <span class="bg-green-100 px-2 py-1 rounded mr-1 mb-1">새방법 시도</span>
+                        <span class="mx-1">→</span>
+                        <span class="bg-blue-100 px-2 py-1 rounded mr-1 mb-1">결과 확인</span>
+                        <span class="mx-1">→</span>
+                        <span class="bg-purple-100 px-2 py-1 rounded mb-1">반복</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 전체 프로세스 요약 -->
+        <div class="bg-gradient-to-r from-gray-800 to-black rounded-3xl p-8 lg:p-12 text-white text-center mb-16 animate-element scale-in">
+            <h3 class="text-2xl lg:text-3xl font-bold mb-8">
+                🏆 이렇게 4단계로 매출이 늘어납니다
+            </h3>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">1️⃣</div>
+                    <h4 class="font-bold mb-2 text-purple-300">채널 셋팅</h4>
+                    <p class="text-gray-300 text-sm mb-2">(1개월)</p>
+                    <p class="text-xs text-gray-400">"고객이 찾아올 길 만들기"</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">2️⃣</div>
+                    <h4 class="font-bold mb-2 text-blue-300">블로그 운영</h4>
+                    <p class="text-gray-300 text-sm mb-2">(2-3개월)</p>
+                    <p class="text-xs text-gray-400">"신뢰할 수 있는 전문가로 인식시키기"</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-green-400 mb-2">3️⃣</div>
+                    <h4 class="font-bold mb-2 text-green-300">성과 분석</h4>
+                    <p class="text-gray-300 text-sm mb-2">(매월)</p>
+                    <p class="text-xs text-gray-400">"뭐가 효과 있는지 숫자로 확인하기"</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <div class="text-3xl font-bold text-orange-400 mb-2">4️⃣</div>
+                    <h4 class="font-bold mb-2 text-orange-300">전략 개선</h4>
+                    <p class="text-gray-300 text-sm mb-2">(지속)</p>
+                    <p class="text-xs text-gray-400">"더 잘 되는 방법으로 계속 발전시키기"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 고객 혜택 -->
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+            <!-- 즉시 효과 -->
+            <div class="bg-gradient-to-br from-red-50 to-white rounded-3xl p-8 shadow-xl border border-red-100 animate-element fade-up stagger-1">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-black mb-4">즉시 효과</h3>
+                </div>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                        <p>1개월 내 검색 노출 시작</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                        <p>2개월 내 문의 전화 증가</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                        <p>3개월 내 매출 증가 체감</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 장기 효과 -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-xl border border-blue-100 animate-element fade-up stagger-2">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold text-black mb-4">장기 효과</h3>
+                </div>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">6</span>
+                        <p>6개월 후 동네에서 유명한 병원 되기</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">1Y</span>
+                        <p>1년 후 입소문으로 환자 저절로 오기</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-blue-600 mr-1">∞</span>
+                        <p>광고비 없이도 환자 꾸준히 유입</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 안전장치 -->
+            <div class="bg-gradient-to-br from-green-50 to-white rounded-3xl p-8 shadow-xl border border-green-100 animate-element fade-up stagger-3">
+                <div class="text-center mb-6">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold text-black mb-4">안전장치</h3>
+                </div>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">✓</span>
+                        <p>매월 투명한 성과 보고서</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">✓</span>
+                        <p>효과 없으면 전략 즉시 수정</p>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="text-green-600 mt-1">✓</span>
+                        <p>궁금한 것 언제든 물어보기 가능</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 차별화 포인트 -->
+        <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-8 lg:p-12 animate-element scale-in mb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl lg:text-3xl font-bold text-black mb-4">
+                    🔥 다른 업체와 이런 게 달라요
+                </h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="text-red-500 text-lg font-bold mb-2">❌ 다른 업체</div>
+                        <div class="text-green-500 text-lg font-bold">✅ 레어핏</div>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="text-red-600 mb-1">"3개월 후 효과 나타날 거예요"</p>
+                            <p class="text-green-600">"매주 변화 상황 리포트 + 즉시 피드백"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="text-red-500 text-lg font-bold mb-2">❌ 다른 업체</div>
+                        <div class="text-green-500 text-lg font-bold">✅ 레어핏</div>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="text-red-600 mb-1">"블로그 글 20개 올려드려요"</p>
+                            <p class="text-green-600">"매출 늘어날 때까지 무제한 수정"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="text-red-500 text-lg font-bold mb-2">❌ 다른 업체</div>
+                        <div class="text-green-500 text-lg font-bold">✅ 레어핏</div>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="text-red-600 mb-1">"전문 작가가 써드려요"</p>
+                            <p class="text-green-600">"원장님과 상의해서 진짜 전문성 담아서"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA 버튼 -->
+        <div class="text-center animate-element fade-up">
+            <div class="space-y-4">
+                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all transform hover:scale-105 shadow-2xl">
+                    우리 병원도 이렇게 될 수 있나요?
+                </button>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-50 px-6 py-3 rounded-full font-bold text-base transition-all transform hover:scale-105 shadow-lg">
+                        성공 사례 더 보기
+                    </button>
+                    <button class="bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-50 px-6 py-3 rounded-full font-bold text-base transition-all transform hover:scale-105 shadow-lg">
+                        비용 궁금하면 클릭
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- 7. FAQ Section -->
-<section id="faq" class="py-20 bg-white">
+<section id="faq" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element fade-down">
-                자주 묻는 질문
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    FAQ
+                </span>
+            </div>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4 animate-element fade-down leading-tight">
+                솔직하게 답변드립니다
             </h2>
-            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">Common Questions</p>
+            <p class="text-xl sm:text-2xl text-gray-600 animate-element fade-up stagger-1 font-medium">
+                다들 이런 걸 궁금해하시더라고요
+            </p>
         </div>
 
-        <div class="max-w-4xl mx-auto space-y-6">
-            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-2">
-                <div class="flex justify-between items-center cursor-pointer">
-                    <h3 class="text-xl font-bold text-black">레어핏의 마케팅 전략은 어떻게 구성되나요?</h3>
-                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+        <div class="max-w-5xl mx-auto">
+            <!-- 비용 & 계약 관련 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-8 animate-element fade-right">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-2xl flex items-center justify-center mr-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black">비용 & 계약 관련</h3>
                 </div>
-                <div class="faq-answer mt-4">
-                    <p class="text-gray-600 leading-relaxed">고객의 비즈니스 목표와 타겟 고객을 정확히 파악한 후, 데이터 분석을 통해 맞춤형 마케팅 전략을 수립합니다. 브랜드 정체성, 경쟁사 분석, 시장 동향을 종합적으로 고려하여 효과적인 마케팅 방향을 제시합니다.</p>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q1. 비용이 얼마나 드나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="bg-yellow-50 rounded-xl p-4 mb-4">
+                                <p class="text-yellow-800 font-medium text-sm">
+                                    💡 <strong>솔직히 말씀드리면</strong> "저렴하다"고 할 수는 없어요.
+                                </p>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                하지만 3개월 후 늘어나는 매출을 생각하면 충분히 회수 가능한 투자입니다.<br>
+                                구체적인 비용은 병원 규모와 목표에 따라 달라지는데, 무료 상담에서 정확한 견적을 말씀드려요.
+                            </p>
+                            <div class="bg-blue-50 rounded-lg p-3">
+                                <p class="text-blue-700 text-sm font-medium">📊 참고: 지금까지 클라이언트들 평균 3개월 내 투자비 회수하셨어요.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q2. 계약 기간은 얼마나 되나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4"><strong>최소 3개월부터 시작해요.</strong> 왜냐하면...</p>
+                            <div class="grid md:grid-cols-3 gap-4 mb-4">
+                                <div class="bg-red-50 rounded-lg p-3 text-center">
+                                    <div class="font-bold text-red-600 mb-1">1개월</div>
+                                    <p class="text-xs text-red-700">기반 작업<br>(채널 셋팅, 키워드 분석)</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-3 text-center">
+                                    <div class="font-bold text-yellow-600 mb-1">2개월</div>
+                                    <p class="text-xs text-yellow-700">본격 콘텐츠<br>제작 및 노출</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-3 text-center">
+                                    <div class="font-bold text-green-600 mb-1">3개월</div>
+                                    <p class="text-xs text-green-700">효과 나타나기<br>시작</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                그래서 3개월은 기본이고, 효과가 좋으면 계속 연장하시는 분들이 대부분이에요.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-3">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q3. 중간에 그만둘 수 있나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                물론이죠! 억지로 붙잡지 않아요.<br>
+                                다만 최소 계약 기간(3개월)은 지켜주셔야 해요.
+                            </p>
+                            <div class="bg-green-50 rounded-lg p-3">
+                                <p class="text-green-700 text-sm">
+                                    그런데 솔직히... 3개월 지나면 효과를 보셔서 "그만두고 싶다"는 분은 거의 없으셨어요 😊
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-3">
-                <div class="flex justify-between items-center cursor-pointer">
-                    <h3 class="text-xl font-bold text-black">성과 분석은 어떻게 이루어지나요?</h3>
-                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+            <!-- 효과 & 성과 관련 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-8 animate-element fade-right">
+                    <div class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center mr-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black">효과 & 성과 관련</h3>
                 </div>
-                <div class="faq-answer mt-4">
-                    <p class="text-gray-600 leading-relaxed">Google Analytics, 소셜미디어 인사이트, 웹사이트 트래픽 분석 등 다양한 데이터 소스를 활용합니다. 월별 성과 리포트를 제공하며, ROI, 전환율, 고객 유입 경로 등을 상세히 분석하여 지속적인 개선 방안을 제시합니다.</p>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-green-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q4. 정말 효과가 있나요? 보장해주나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                100% 보장은 솔직히 불가능해요. 그런 업체 있다면 의심해보세요.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed mb-4"><strong>하지만 이건 약속드려요:</strong></p>
+                            <div class="grid md:grid-cols-3 gap-3 mb-4">
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-600 mt-1">✓</span>
+                                    <p class="text-sm text-gray-700">매달 투명한 성과 리포트 제공</p>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-600 mt-1">✓</span>
+                                    <p class="text-sm text-gray-700">효과 없으면 전략 즉시 수정</p>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-600 mt-1">✓</span>
+                                    <p class="text-sm text-gray-700">90% 이상 클라이언트 만족</p>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-3">
+                                <p class="text-blue-700 text-sm font-medium">🔍 실제 후기와 성과 데이터 보여드릴 수 있어요!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-green-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q5. 언제부터 효과를 볼 수 있나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4"><strong>현실적인 타임라인</strong> 말씀드릴게요:</p>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-16 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-red-600 text-xs font-bold">1개월</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm">블로그 글이 검색에 노출되기 시작</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-16 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-yellow-600 text-xs font-bold">2개월</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm">블로그 방문자 수 눈에 띄게 증가</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-16 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-blue-600 text-xs font-bold">3개월</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm">전화 문의 증가 체감</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-16 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-green-600 text-xs font-bold">4-6개월</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm">매출 증가 확실히 느껴짐</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm italic">
+                                급한 마음은 이해하지만, 제대로 된 마케팅은 시간이 필요해요.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-4">
-                <div class="flex justify-between items-center cursor-pointer">
-                    <h3 class="text-xl font-bold text-black">고객 만족을 위해 어떤 노력을 하나요?</h3>
-                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+            <!-- 작업 과정 관련 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-8 animate-element fade-right">
+                    <div class="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center mr-4">
+                        <span class="text-2xl">📝</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-black">작업 과정 관련</h3>
                 </div>
-                <div class="faq-answer mt-4">
-                    <p class="text-gray-600 leading-relaxed">정기적인 소통과 피드백을 통해 고객의 니즈를 파악합니다. 프로젝트 진행 상황을 실시간으로 공유하고, 24시간 내 응답을 원칙으로 합니다. 또한 프로젝트 완료 후에도 지속적인 사후 관리 서비스를 제공합니다.</p>
-                </div>
-            </div>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-blue-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q7. 원장님이 직접 해야 할 일이 많나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4"><strong>생각보다 많지 않아요!</strong></p>
+                            <div class="bg-blue-50 rounded-xl p-4 mb-4">
+                                <h5 class="font-bold text-blue-700 mb-3">원장님이 하실 일:</h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-blue-600 mt-1">✓</span>
+                                        <p class="text-sm text-blue-700">초기 인터뷰 (1-2시간) - 병원 특징, 치료 철학 등</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-blue-600 mt-1">✓</span>
+                                        <p class="text-sm text-blue-700">월 1회 피드백 미팅 (30분)</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-blue-600 mt-1">✓</span>
+                                        <p class="text-sm text-blue-700">가끔 궁금한 것 답변 (카톡으로 간단히)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                나머지는 저희가 다 해드려요. 바쁜 원장님들 배려해서 최소한으로만 요청드려요.
+                            </p>
+                        </div>
+                    </div>
 
-            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-5">
-                <div class="flex justify-between items-center cursor-pointer">
-                    <h3 class="text-xl font-bold text-black">소셜 미디어를 통한 브랜드 홍보는 어떻게 진행되나요?</h3>
-                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </div>
-                <div class="faq-answer mt-4">
-                    <p class="text-gray-600 leading-relaxed">타겟 고객이 활발한 플랫폼을 선별하여 맞춤형 콘텐츠를 제작합니다. 인스타그램, 페이스북, 네이버 블로그 등 다양한 채널에서 일관된 브랜드 메시지를 전달하며, 인플루언서 협업과 광고 캠페인을 통해 브랜드 인지도를 확대합니다.</p>
-                </div>
-            </div>
-
-            <div class="faq-item glass-effect rounded-2xl p-8 animate-element fade-up stagger-6">
-                <div class="flex justify-between items-center cursor-pointer">
-                    <h3 class="text-xl font-bold text-black">브랜드 성장을 위한 혁신적인 전략은 무엇인가요?</h3>
-                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </div>
-                <div class="faq-answer mt-4">
-                    <p class="text-gray-600 leading-relaxed">AI 기반 고객 행동 분석, 개인화된 마케팅 메시지, 옴니채널 전략을 통해 차별화된 고객 경험을 제공합니다. 또한 최신 마케팅 트렌드와 기술을 적극 활용하여 경쟁사보다 앞선 마케팅 솔루션을 구현합니다.</p>
+                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                        <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-blue-500">
+                            <h4 class="text-lg font-bold text-black flex-1">Q8. 블로그 글은 누가 쓰나요?</h4>
+                            <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <strong>저희가 써드리되, 원장님 스타일로 맞춰드려요.</strong>
+                            </p>
+                            <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                                <h5 class="font-bold text-gray-700 mb-3">과정:</h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">1</div>
+                                        <p class="text-sm text-gray-700">저희가 초안 작성</p>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-xs font-bold">2</div>
+                                        <p class="text-sm text-gray-700">원장님께 검토 요청</p>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xs font-bold">3</div>
+                                        <p class="text-sm text-gray-700">피드백 받아서 수정</p>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold">4</div>
+                                        <p class="text-sm text-gray-700">최종 승인 후 발행</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-3">
+                                <p class="text-purple-700 text-sm font-medium">
+                                    🎯 목표: "이 글은 우리 원장님이 직접 쓴 것 같다"는 환자 반응!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- FAQ 마무리 CTA -->
+<!--        <div class="text-center mt-16 animate-element fade-up">-->
+<!--            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto">-->
+<!--                <h3 class="text-2xl lg:text-3xl font-bold text-black mb-6">-->
+<!--                    더 궁금한 게 있으시다면?-->
+<!--                </h3>-->
+<!--                <p class="text-xl text-gray-700 mb-8 leading-relaxed">-->
+<!--                    💬 <strong>1:1 무료 상담</strong>에서 뭐든 물어보세요!-->
+<!--                </p>-->
+<!--                <div class="grid md:grid-cols-3 gap-4 mb-8">-->
+<!--                    <div class="bg-white rounded-xl p-4 shadow-lg">-->
+<!--                        <div class="text-2xl mb-2">📞</div>-->
+<!--                        <p class="text-sm text-gray-600">전화 상담</p>-->
+<!--                        <p class="font-bold text-gray-800">02-1234-5678</p>-->
+<!--                    </div>-->
+<!--                    <div class="bg-white rounded-xl p-4 shadow-lg">-->
+<!--                        <div class="text-2xl mb-2">💌</div>-->
+<!--                        <p class="text-sm text-gray-600">카카오톡</p>-->
+<!--                        <p class="font-bold text-gray-800">@레어핏</p>-->
+<!--                    </div>-->
+<!--                    <div class="bg-white rounded-xl p-4 shadow-lg">-->
+<!--                        <div class="text-2xl mb-2">📧</div>-->
+<!--                        <p class="text-sm text-gray-600">이메일</p>-->
+<!--                        <p class="font-bold text-gray-800 text-xs">hello@rarefit.co.kr</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <p class="text-gray-600 text-sm italic mb-6">-->
+<!--                    "이런 것까지 물어봐도 되나?" 싶은 것도 환영이에요. 솔직하게 다 답변드릴게요!-->
+<!--                </p>-->
+<!--                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-2xl">-->
+<!--                    무료 상담 신청하기-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </section>
 
-<!-- 8. Social Media Section -->
-<section id="social" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
-                소셜미디어를 통해 브랜드를<br>홍보하고 고객과 소통합니다
+<!--&lt;!&ndash; 8. Social Media Section &ndash;&gt;-->
+<!--<section id="social" class="py-20 bg-gray-100">-->
+<!--    <div class="container mx-auto px-6">-->
+<!--        <div class="text-center mb-16">-->
+<!--            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">-->
+<!--                소셜미디어를 통해 브랜드를<br>홍보하고 고객과 소통합니다-->
+<!--            </h2>-->
+<!--            <div class="text-2xl font-bold text-gray-400 reveal-element">#RAREFIT</div>-->
+<!--        </div>-->
+
+<!--        <div class="social-grid">-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img4.png" alt="Social Media Content 1" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img5.png" alt="Social Media Content 2" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img0-2.png" alt="Social Media Content 3" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img1.png" alt="Social Media Content 4" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img2.png" alt="Social Media Content 5" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--            <div class="reveal-element">-->
+<!--                <img src="design/img3.png" alt="Social Media Content 6" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Final CTA &ndash;&gt;-->
+<!--        <div class="text-center mt-16">-->
+<!--            <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">-->
+<!--                무료 상담 신청하기-->
+<!--            </button>-->
+<!--            <p class="text-gray-400 mt-4">지금 바로 시작하세요!</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!-- 8. Service Offerings Section -->
+<section class="py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+    <div class="container mx-auto px-6 relative">
+        <!-- Section Header -->
+        <div class="text-center mb-20">
+<!--            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full mb-8">-->
+<!--                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
+<!--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>-->
+<!--                </svg>-->
+<!--            </div>-->
+            <div class="mb-6">
+                <span class="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-semibold animate-element fade-down">
+                    We Provide
+                </span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
+                <span class="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">이 모든 걸 다 해드려요</span>
             </h2>
-            <div class="text-2xl font-bold text-gray-400 reveal-element">#RAREFIT</div>
+            <p class="text-xl md:text-2xl text-gray-600 font-semibold">복잡한 건 저희가, 결과는 원장님이</p>
         </div>
 
-        <div class="social-grid">
-            <div class="reveal-element">
-                <img src="design/img4.png" alt="Social Media Content 1" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <!-- 4가지 핵심 서비스 -->
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
+            <!-- 1. 브랜드 블로그 -->
+            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-100 to-transparent rounded-bl-full opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-4 py-2 rounded-full text-sm font-bold">1</div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-black mb-4">브랜드 블로그</h3>
+                    <p class="text-lg text-purple-600 font-semibold mb-6">우리 병원만의 전문 블로그 만들기</p>
+                    
+                    <div class="bg-gradient-to-r from-purple-50 to-white p-6 rounded-2xl mb-6">
+                        <p class="text-gray-700 mb-4 font-medium">
+                            <span class="text-purple-600">✨ 쉽게 말하면:</span><br>
+                            "네이버에서 '○○ 치료'를 검색했을 때<br>
+                            우리 병원 글이 맨 위에 나오게 만드는 일"
+                        </p>
+                        
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>환자들이 자주 검색하는 질문 리서치</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>원장님 스타일에 맞는 전문 글 작성</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>검색 1페이지에 나오도록 최적화</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-100 p-4 rounded-xl">
+                        <p class="text-sm text-purple-800 font-semibold">💡 결과: 매달 수백 명이 우리 블로그를 보고 병원을 알게 돼요</p>
+                    </div>
+                </div>
             </div>
-            <div class="reveal-element">
-                <img src="design/img5.png" alt="Social Media Content 2" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+
+            <!-- 2. 블로그 배포 -->
+            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-full opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2 rounded-full text-sm font-bold">2</div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-black mb-4">블로그 배포</h3>
+                    <p class="text-lg text-blue-600 font-semibold mb-6">좋은 글을 더 많은 곳에 퍼뜨리기</p>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-white p-6 rounded-2xl mb-6">
+                        <p class="text-gray-700 mb-4 font-medium">
+                            <span class="text-blue-600">✨ 쉽게 말하면:</span><br>
+                            "맛있는 음식을 여러 배달앱에 올리듯이,<br>
+                            우리가 쓴 좋은 글을 여러 곳에 올려서 더 많이 보이게 하는 일"
+                        </p>
+                        
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>네이버 블로그, 티스토리, 브런치 등 동시 발행</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>각 플랫폼 특성에 맞게 제목과 내용 조금씩 변경</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>검색될 확률을 몇 배로 높이기</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-100 p-4 rounded-xl">
+                        <p class="text-sm text-blue-800 font-semibold">💡 결과: 같은 노력으로 5배 더 많은 노출 효과!</p>
+                    </div>
+                </div>
             </div>
-            <div class="reveal-element">
-                <img src="design/img0-2.png" alt="Social Media Content 3" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+
+            <!-- 3. 카페 침투 -->
+            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-green-100 to-transparent rounded-bl-full opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-600 to-green-800 rounded-2xl mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-600 to-green-800 text-white px-4 py-2 rounded-full text-sm font-bold">3</div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-black mb-4">카페 침투</h3>
+                    <p class="text-lg text-green-600 font-semibold mb-6">동네 맘카페에서 자연스럽게 추천받기</p>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-white p-6 rounded-2xl mb-6">
+                        <p class="text-gray-700 mb-4 font-medium">
+                            <span class="text-green-600">✨ 쉽게 말하면:</span><br>
+                            "동네 맘들이 모이는 온라인 카페에서<br>
+                            '○○치과 어디가 좋아요?' 질문 나올 때<br>
+                            자연스럽게 우리 병원이 추천되게 만드는 일"
+                        </p>
+                        
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>지역 맘카페, 육아카페 등에서 활동</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>치료 후기, 정보 글을 자연스럽게 공유</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>광고 티 안 나게 입소문 효과 만들기</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-100 p-4 rounded-xl border-l-4 border-yellow-400">
+                        <p class="text-sm text-green-800 font-semibold">
+                            <span class="text-yellow-600">⚠️</span> 광고가 아닌 진짜 후기처럼! 카페 규칙 100% 준수!
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="reveal-element">
-                <img src="design/img1.png" alt="Social Media Content 4" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="reveal-element">
-                <img src="design/img2.png" alt="Social Media Content 5" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="reveal-element">
-                <img src="design/img3.png" alt="Social Media Content 6" class="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+
+            <!-- 4. 플레이스 셋팅 -->
+            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-100 to-transparent rounded-bl-full opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-800 rounded-2xl mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-600 to-orange-800 text-white px-4 py-2 rounded-full text-sm font-bold">4</div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-black mb-4">플레이스 셋팅</h3>
+                    <p class="text-lg text-orange-600 font-semibold mb-6">네이버지도에서 우리 병원 예쁘게 꾸미기</p>
+                    
+                    <div class="bg-gradient-to-r from-orange-50 to-white p-6 rounded-2xl mb-6">
+                        <p class="text-gray-700 mb-4 font-medium">
+                            <span class="text-orange-600">✨ 쉽게 말하면:</span><br>
+                            "네이버지도에서 우리 병원을 검색했을 때<br>
+                            사진도 예쁘고, 정보도 자세하고, 후기도 좋아 보이게<br>
+                            예쁘게 꾸며놓는 일"
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">✓</span>
+                                <span>고화질 병원 사진</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">✓</span>
+                                <span>상세한 진료 항목</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">✓</span>
+                                <span>전문적인 소개글</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">✓</span>
+                                <span>편의 정보 완비</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-orange-100 p-4 rounded-xl">
+                        <p class="text-sm text-orange-800 font-semibold">💡 결과: 지도 검색만으로도 환자가 "여기다!" 결정하게 만들기</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Final CTA -->
-        <div class="text-center mt-16">
-            <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
-                무료 상담 신청하기
-            </button>
-            <p class="text-gray-400 mt-4">지금 바로 시작하세요!</p>
+        <!-- 서비스 조합 효과 -->
+        <div class="bg-gradient-to-r from-gray-900 to-black rounded-3xl p-8 lg:p-12 mb-20 relative overflow-hidden animate-element">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-purple-500/20 to-transparent rounded-bl-full"></div>
+            <div class="relative z-10">
+                <h3 class="text-3xl font-bold text-white text-center mb-8">
+                    <span class="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">4가지 서비스 조합 효과</span>
+                </h3>
+                <p class="text-xl text-gray-300 text-center mb-10">이렇게 연결되어 매출이 늘어납니다</p>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+                        <div class="text-center group">
+                            <div class="bg-green-500/20 p-4 rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                                <div class="text-3xl mb-2">📱</div>
+                                <p class="text-white font-semibold">카페 침투</p>
+                                <p class="text-green-400 text-sm">"○○치과 괜찮다던데?"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:block text-center">
+                            <svg class="w-12 h-12 text-purple-400 mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="text-center group">
+                            <div class="bg-orange-500/20 p-4 rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                                <div class="text-3xl mb-2">📍</div>
+                                <p class="text-white font-semibold">플레이스 검색</p>
+                                <p class="text-orange-400 text-sm">"어? 여기 시설 좋네!"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:block text-center">
+                            <svg class="w-12 h-12 text-purple-400 mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="text-center group">
+                            <div class="bg-purple-500/20 p-4 rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                                <div class="text-3xl mb-2">📝</div>
+                                <p class="text-white font-semibold">블로그 확인</p>
+                                <p class="text-purple-400 text-sm">"원장님 설명도 자세하시고..."</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:block text-center">
+                            <svg class="w-12 h-12 text-purple-400 mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="text-center group">
+                            <div class="bg-blue-500/20 p-4 rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                                <div class="text-3xl mb-2">🔄</div>
+                                <p class="text-white font-semibold">여러 곳 노출</p>
+                                <p class="text-blue-400 text-sm">"어디서나 이 병원이 나오네?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-12">
+                        <div class="inline-block bg-gradient-to-r from-purple-600 to-purple-800 text-white px-8 py-4 rounded-2xl text-xl font-bold shadow-2xl">
+                            결과: "여기가 바로 내가 찾던 병원이야!" 💯
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 예상 결과 타임라인 -->
+        <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-gray-100 mb-20 animate-element">
+            <h3 class="text-3xl font-bold text-center text-black mb-12">
+                <span class="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">언제부터 뭘 느낄 수 있나요?</span>
+            </h3>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-600 to-purple-300 rounded-full"></div>
+                
+                <div class="space-y-16">
+                    <!-- 1개월차 -->
+                    <div class="flex items-center">
+                        <div class="flex-1 text-right pr-8">
+                            <div class="bg-purple-50 p-6 rounded-2xl shadow-lg border border-purple-100">
+                                <h4 class="text-xl font-bold text-purple-800 mb-3">1개월차</h4>
+                                <div class="space-y-2 text-gray-700">
+                                    <p class="flex items-center justify-end"><span class="text-purple-600 mr-2">•</span>플레이스 정보 완성</p>
+                                    <p class="flex items-center justify-end"><span class="text-purple-600 mr-2">•</span>블로그 첫 글들 발행</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl">1</div>
+                        </div>
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+                    
+                    <!-- 2개월차 -->
+                    <div class="flex items-center">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl">2</div>
+                        </div>
+                        <div class="flex-1 text-left pl-8">
+                            <div class="bg-blue-50 p-6 rounded-2xl shadow-lg border border-blue-100">
+                                <h4 class="text-xl font-bold text-blue-800 mb-3">2개월차</h4>
+                                <div class="space-y-2 text-gray-700">
+                                    <p class="flex items-center"><span class="text-blue-600 mr-2">•</span>블로그 배포 효과 시작</p>
+                                    <p class="flex items-center"><span class="text-blue-600 mr-2">•</span>카페 활동 시작</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 3개월차 -->
+                    <div class="flex items-center">
+                        <div class="flex-1 text-right pr-8">
+                            <div class="bg-green-50 p-6 rounded-2xl shadow-lg border border-green-100">
+                                <h4 class="text-xl font-bold text-green-800 mb-3">3개월차</h4>
+                                <div class="space-y-2 text-gray-700">
+                                    <p class="flex items-center justify-end"><span class="text-green-600 mr-2">•</span>모든 채널 시너지 효과</p>
+                                    <p class="flex items-center justify-end"><span class="text-green-600 mr-2">•</span>환자 문의 증가</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-600 to-green-800 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl">3</div>
+                        </div>
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+                    
+                    <!-- 6개월차 -->
+                    <div class="flex items-center">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-800 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl">6</div>
+                        </div>
+                        <div class="flex-1 text-left pl-8">
+                            <div class="bg-orange-50 p-6 rounded-2xl shadow-lg border border-orange-100">
+                                <h4 class="text-xl font-bold text-orange-800 mb-3">6개월차</h4>
+                                <div class="space-y-2 text-gray-700">
+                                    <p class="flex items-center"><span class="text-orange-600 mr-2">•</span>입소문 확산</p>
+                                    <p class="flex items-center"><span class="text-orange-600 mr-2">•</span>매출 증가 체감</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 안전장치 & 차별점 -->
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+            <!-- 안전장치 -->
+            <div class="bg-green-50 rounded-3xl p-8 border border-green-200 animate-element">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-green-800">안전장치</h3>
+                </div>
+                <p class="text-lg text-green-700 font-semibold mb-6">이런 건 걱정 안 하셔도 돼요</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-3 mt-1">✅</span>
+                        <div>
+                            <p class="font-semibold text-green-800">의료광고 규정 100% 준수</p>
+                            <p class="text-sm text-green-600">과장 광고, 허위 정보 절대 안 함</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-3 mt-1">✅</span>
+                        <div>
+                            <p class="font-semibold text-green-800">플랫폼 정책 준수</p>
+                            <p class="text-sm text-green-600">계정 정지나 페널티 위험 제로</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-3 mt-1">✅</span>
+                        <div>
+                            <p class="font-semibold text-green-800">투명한 작업 과정</p>
+                            <p class="text-sm text-green-600">매달 리포트로 공개</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 차별점 -->
+            <div class="bg-purple-50 rounded-3xl p-8 border border-purple-200 animate-element">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-purple-800">특별한 차별점</h3>
+                </div>
+                <p class="text-lg text-purple-700 font-semibold mb-6">다른 곳과 이런 게 달라요</p>
+                
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-2xl border border-purple-200">
+                        <div class="flex items-center mb-2">
+                            <span class="text-red-500 mr-2">❌</span>
+                            <span class="text-sm text-gray-600">다른 업체: 블로그만 따로, 플레이스만 따로</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span class="text-sm font-semibold text-purple-800">저희: 모든 채널을 하나의 스토리로 연결</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-2xl border border-purple-200">
+                        <div class="flex items-center mb-2">
+                            <span class="text-red-500 mr-2">❌</span>
+                            <span class="text-sm text-gray-600">다른 업체: "일단 글 많이 올려드려요"</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span class="text-sm font-semibold text-purple-800">저희: "매출 늘어날 때까지 전략적으로"</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-2xl border border-purple-200">
+                        <div class="flex items-center mb-2">
+                            <span class="text-red-500 mr-2">❌</span>
+                            <span class="text-sm text-gray-600">다른 업체: "3개월 후에 연락드릴게요"</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span class="text-sm font-semibold text-purple-800">저희: "매주 진행상황 공유드려요"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl p-12 text-white animate-element">
+            <h3 class="text-3xl font-bold mb-6">더 자세히 알고 싶다면?</h3>
+            <p class="text-xl mb-8">무료 상담에서 확인해보세요!</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
+                    <h4 class="font-bold text-lg mb-4">🎯 무료 상담에서 확인할 수 있는 것</h4>
+                    <div class="space-y-2 text-sm text-left">
+                        <p>• 우리 병원에 맞는 서비스 조합 추천</p>
+                        <p>• 예상 효과와 타임라인 상세 설명</p>
+                        <p>• 비용과 진행 과정 투명하게 공개</p>
+                        <p>• 성공 사례와 실제 결과 데이터 공유</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
+                    <h4 class="font-bold text-lg mb-4">📞 연락처</h4>
+                    <div class="space-y-3 text-left">
+                        <p class="flex items-center"><span class="mr-2">📞</span> 전화: 00-0000-0000</p>
+                        <p class="flex items-center"><span class="mr-2">💬</span> 카톡: @rare마케팅</p>
+                        <p class="flex items-center"><span class="mr-2">📧</span> 이메일: hello@raremarketing.co.kr</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <button class="bg-white text-purple-600 hover:bg-gray-100 px-12 py-4 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                    무료 상담 신청하기
+                </button>
+                <p class="text-purple-200">💡 상담 받는다고 귀찮은 영업 전화 안 드려요! 정말 필요한 분들과만 함께 일해요.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -701,8 +2244,8 @@
         <div class="grid md:grid-cols-3 gap-8">
             <div>
                 <div class="text-3xl font-bold gradient-text mb-4">RAREFIT</div>
-                <p class="text-gray-400 mb-4">10명 중 8명이 구매하는 병원 마케팅 솔루션</p>
-                <p class="text-gray-500">오로지 매출로만 얘기합니다.</p>
+                <p class="text-gray-400 mb-4">의료진이 먼저 인정한 마케팅 솔루션</p>
+                <p class="text-gray-500">실제로 환자가 늘어나는 마케팅만 합니다.</p>
             </div>
 
             <div>
@@ -753,6 +2296,24 @@
             }
         }
 
+        // Hero stats counter animation
+        function animateHeroStats() {
+            const heroStatNumbers = document.querySelectorAll('.hero-stat-number');
+            heroStatNumbers.forEach((counter, index) => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const hasDecimal = target % 1 !== 0;
+                
+                anime({
+                    targets: counter,
+                    innerHTML: [0, target],
+                    duration: 2000,
+                    easing: 'easeOutQuad',
+                    round: hasDecimal ? 10 : 1,
+                    delay: 1500 + (index * 200)
+                });
+            });
+        }
+
         // Hero section animations with Anime.js
         function startHeroAnimations() {
             anime.timeline({
@@ -784,7 +2345,23 @@
                     translateY: [20, 0],
                     scale: [0.9, 1],
                     duration: 800,
-                }, '-=400');
+                }, '-=400')
+                .add({
+                    targets: '.hero-stats',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                }, '-=200')
+                .add({
+                    targets: '.hero-stat-item',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 600,
+                    delay: (el, i) => i * 150,
+                }, '-=600');
+            
+            // Start hero stats animation
+            setTimeout(animateHeroStats, 2200);
         }
 
         // Start hero animations
