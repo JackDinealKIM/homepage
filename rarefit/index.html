@@ -279,15 +279,14 @@
 </header>
 
 <!-- 1. Hero Section -->
-<section id="hero" class="min-h-screen flex items-center gradient-bg relative overflow-hidden pt-20">
+<section id="hero" class="h-[800px] flex items-center gradient-bg relative overflow-hidden pt-20">
     <div class="absolute inset-0">
         <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30 hero-bg-image">
     </div>
     <div class="absolute inset-0 bg-black/40"></div>
-    <div class="container mx-auto px-6 relative z-10 text-center">
+    <div class="container mx-auto px-6 relative z-10 text-center pb-32 md:pb-40 lg:pb-48">
         <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 lg:mb-8 text-white hero-title leading-tight">
-            <span class="number-highlight">의료진이 먼저 인정한</span><br class="sm:hidden">
-            마케팅 솔루션
+            <span class="number-highlight">신환을 만드는 브랜드 마케팅</span>
         </h1>
         <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 mb-4 md:mb-6 lg:mb-8 hero-subtitle font-semibold">
             오직, <span class="text-white font-bold">환자 증가, 매출 상승으로만<br class="sm:hidden"> 증명</span>합니다.
@@ -298,26 +297,35 @@
         <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
             무료 상담 신청하기
         </button>
-        
-        <!-- Hero Stats Section -->
-        <div class="hero-stats mt-10 md:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
-                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
-                    <span class="hero-stat-number text-purple-600" data-target="97.8">0</span><span class="text-black">%</span>
+    </div>
+    
+    <!-- Hero Stats Section -->
+    <div class="hero-stats absolute left-0 right-0 bottom-0 z-10">
+        <div class="bg-white/95 backdrop-blur-sm py-6 md:py-8 lg:py-10 shadow-2xl border-t border-b border-white/20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-3 max-w-6xl mx-auto">
+                    <div class="text-center hero-stat-item py-2 md:py-4">
+                        <div class="text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-2">
+                            <span class="hero-stat-number text-purple-600" data-target="97.8">0</span><span class="text-black">%</span>
+                        </div>
+                        <div class="text-xs md:text-base lg:text-lg xl:text-xl text-gray-700 font-medium">재계약률</div>
+                    </div>
+                    <div class="text-center hero-stat-item py-2 md:py-4 border-l border-r border-gray-300">
+                        <div class="text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-2">
+                            <span class="hero-stat-number text-purple-600" data-target="11">0</span><span class="text-black">건</span>
+                        </div>
+                        <div class="text-xs md:text-base lg:text-lg xl:text-xl text-gray-700 font-medium">
+                            <div class="text-xs md:text-sm lg:text-base">2개월 0건</div>
+                            <div class="text-xs md:text-sm lg:text-base">➡️ 11건 계약</div>
+                        </div>
+                    </div>
+                    <div class="text-center hero-stat-item py-2 md:py-4">
+                        <div class="text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-2">
+                            <span class="hero-stat-number text-purple-600" data-target="4.9">0</span><span class="text-black">/5점</span>
+                        </div>
+                        <div class="text-xs md:text-base lg:text-lg xl:text-xl text-gray-700 font-medium">평점</div>
+                    </div>
                 </div>
-                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">재계약률</div>
-            </div>
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
-                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
-                    <span class="hero-stat-number text-purple-600" data-target="11">0</span><span class="text-black">건</span>
-                </div>
-                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">2개월 0건 ➡️ 11건 계약</div>
-            </div>
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
-                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
-                    <span class="hero-stat-number text-purple-600" data-target="4.9">0</span><span class="text-black">/5점</span>
-                </div>
-                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">평점</div>
             </div>
         </div>
     </div>
@@ -1343,7 +1351,7 @@
         <div class="grid md:grid-cols-3 gap-8">
             <div>
                 <div class="text-3xl font-bold gradient-text mb-4">RAREFIT</div>
-                <p class="text-gray-400 mb-4">의료진이 먼저 인정한 마케팅 솔루션</p>
+                <p class="text-gray-400 mb-4">신환을 만드는 브랜드 마케팅</p>
                 <p class="text-gray-500">실제로 환자가 늘어나는 마케팅만 합니다.</p>
             </div>
 

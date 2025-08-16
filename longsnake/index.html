@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>15년차 개발자 - 돈 버는 홈페이지 전문가</title>
+    <title>롱스네이크 - 프리미엄 웹 솔루션 전문가</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
@@ -19,20 +19,40 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #374151;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            color: #111827;
+            color: #1a202c;
             font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         p {
-            color: #6b7280;
+            color: #4a5568;
+            font-weight: 400;
         }
 
         .text-white {
             color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .text-gray-800 {
@@ -60,15 +80,55 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ff6b95 75%, #c44569 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-0.5deg); }
         }
 
         .gold-gradient {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 50%, #ff9a56 100%);
+            box-shadow: 0 10px 30px rgba(246, 211, 101, 0.3);
         }
 
         .green-gradient {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            box-shadow: 0 10px 30px rgba(56, 239, 125, 0.3);
+        }
+
+        .purple-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.3);
+        }
+
+        .ocean-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .sunset-gradient {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b95 50%, #c44569 100%);
+        }
+
+        .cosmic-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #53a0fd 75%, #48c6ef 100%);
         }
 
         .typing-animation {
@@ -97,13 +157,27 @@
         }
 
         .pulse-button {
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite, glow 3s ease-in-out infinite alternate;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 165, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(255, 165, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.3); }
+            to { box-shadow: 0 0 30px rgba(255, 165, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.5); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) skewX(-12deg); }
+            100% { transform: translateX(200%) skewX(-12deg); }
+        }
+
+        .animate-shimmer {
+            animation: shimmer 3s infinite;
         }
 
         /* 기본 애니메이션을 위한 CSS */
@@ -113,9 +187,35 @@
             transition: all 0.6s ease-out;
         }
 
-        [data-sr].sr-visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* 카드 스타일 개선 */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15), 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         /* 버튼 스타일 강화 */
@@ -123,12 +223,37 @@
             color: #ffffff;
             font-weight: bold;
             cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover:before {
+            left: 100%;
         }
 
         /* 링크 스타일 */
         a {
-            color: #374151;
+            color: #4a5568;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #667eea;
+            transform: translateY(-1px);
         }
 
         /* 추가적인 반응형 설정 */
@@ -147,21 +272,21 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gradient-to-br from-slate-50 to-blue-50">
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full bg-white shadow-lg z-50" data-sr="fade-down">
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-xl shadow-2xl z-50 border-b border-white/20" data-sr="fade-down">
     <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-800">15년차 개발자</div>
+            <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">롱스네이크</div>
             <div class="hidden md:flex space-x-6">
-                <a href="#hero" class="text-gray-700 hover:text-blue-800 transition">홈</a>
-                <a href="#services" class="text-gray-700 hover:text-blue-800 transition">서비스</a>
-                <a href="#results" class="text-gray-700 hover:text-blue-800 transition">성과</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">상담</a>
+                <a href="#hero" class="text-gray-700 hover:text-purple-600 font-medium transition">홈</a>
+                <a href="#services" class="text-gray-700 hover:text-purple-600 font-medium transition">서비스</a>
+                <a href="#results" class="text-gray-700 hover:text-purple-600 font-medium transition">성과</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 font-medium transition">상담</a>
             </div>
-            <button class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 transition">
-                무료 상담
+            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                🚀 상담신청
             </button>
         </div>
     </div>
@@ -172,60 +297,70 @@
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="text-white">
-                <h1 class="text-5xl md:text-6xl font-black mb-6" data-sr="fade-right">
-                    홈페이지 만들기
-                    <span class="text-yellow-400">vs</span><br>
-                    <span class="text-yellow-400">돈 버는</span> 홈페이지 만들기
+                <h1 class="text-5xl md:text-7xl font-black mb-8" data-sr="fade-right">
+                    <span class="bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent">역시 다른</span><br>
+                    <span class="text-yellow-400 text-6xl md:text-8xl">롱스네이크</span><br>
+                    <span class="text-white text-3xl md:text-4xl font-medium">프리미엄 웹 솔루션</span>
                 </h1>
-                <h2 class="text-3xl font-bold mb-8 typing-animation" data-sr="fade-right" data-sr-delay="300">
-                    뭘 원하세요?
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 typing-animation bg-gradient-to-r from-yellow-200 to-white bg-clip-text text-transparent" data-sr="fade-right" data-sr-delay="300">
+                    완전히 다른 차원의 품질
                 </h2>
-                <p class="text-xl mb-6" data-sr="fade-right" data-sr-delay="600">
-                    15년차 개발자가 <span class="text-yellow-400 font-bold">기획부터 SEO까지</span> 함께 고민합니다.<br>
-                    만드는 것도 중요하지만, <span class="text-green-400 font-bold">찾아지는 것</span>은 더 중요하니까요.
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed" data-sr="fade-right" data-sr-delay="600">
+                    단순한 웹사이트와는 <span class="text-yellow-400 font-bold">완전히 다른 경험</span>을 선사합니다.<br>
+                    <span class="text-green-400 font-bold">비즈니스 성공</span>을 위한 전문가의 완벽한 솔루션입니다.
                 </p>
-                <div class="text-lg mb-8 flex items-center" data-sr="fade-right" data-sr-delay="900">
-                    <span class="text-2xl mr-2">🔍</span>
-                    <span class="text-green-400 font-bold">구글 1페이지 노출</span>
-                    <span class="mx-2">+</span>
-                    <span class="text-2xl mr-2">💰</span>
-                    <span class="text-yellow-400 font-bold">매출 증가</span>
-                    <span class="mx-2">=</span>
-                    <span class="font-bold">진짜 성공</span>
+                <div class="bg-black/20 backdrop-blur-sm rounded-2xl p-6 mb-8" data-sr="fade-right" data-sr-delay="900">
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-lg">
+                        <div class="flex items-center bg-green-500/20 px-4 py-2 rounded-xl">
+                            <span class="text-3xl mr-3">🔍</span>
+                            <span class="text-green-300 font-bold">구글 상위 노출</span>
+                        </div>
+                        <span class="text-3xl text-white">+</span>
+                        <div class="flex items-center bg-yellow-500/20 px-4 py-2 rounded-xl">
+                            <span class="text-3xl mr-3">💰</span>
+                            <span class="text-yellow-300 font-bold">매출 폭증</span>
+                        </div>
+                        <span class="text-3xl text-white">=</span>
+                        <div class="bg-white/20 px-6 py-3 rounded-xl">
+                            <span class="font-black text-2xl text-white">성공</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4" data-sr="fade-up" data-sr-delay="1200">
-                    <button class="bg-gray-400 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-500 transition flex items-center">
-                        <span class="text-2xl mr-2">🎨</span>
-                        그냥 예쁘게만
+                <div class="flex flex-col sm:flex-row gap-6" data-sr="fade-up" data-sr-delay="1200">
+                    <button class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:from-gray-600 hover:to-gray-700 transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center">
+                        <span class="text-3xl mr-3">🎨</span>
+                        일반적인 제작
                     </button>
-                    <button class="gold-gradient text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg transition pulse-button flex items-center">
-                        <span class="text-2xl mr-2">💰</span>
-                        매출까지 챙기기
+                    <button class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-110 shadow-2xl pulse-button flex items-center justify-center relative overflow-hidden">
+                        <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 transform -skew-x-12 -translate-x-full animate-pulse"></span>
+                        <span class="text-3xl mr-3">✨</span>
+                        롱스네이크 프리미엄
                     </button>
                 </div>
             </div>
             <div class="floating" data-sr="fade-left">
-                <div class="bg-white rounded-lg shadow-2xl p-8">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl font-black text-blue-800 mb-2">15년 경력</div>
-                        <div class="text-gray-600">검증된 실력</div>
+                <div class="card rounded-3xl p-10 bg-gradient-to-br from-white via-blue-50 to-purple-50">
+                    <div class="text-center mb-8">
+                        <div class="text-5xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">프리미엄</div>
+                        <div class="text-gray-700 font-bold text-lg">웹 솔루션</div>
+                        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 rounded-full"></div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="p-4">
-                            <div class="number-counter" data-count="200">0</div>
-                            <div class="text-sm text-gray-600">프로젝트 완료</div>
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div class="p-5 bg-white rounded-2xl shadow-lg">
+                            <div class="number-counter text-3xl font-black bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent" data-count="10">0</div>
+                            <div class="text-sm text-gray-700 font-semibold mt-2">프로젝트 완료</div>
                         </div>
-                        <div class="p-4">
-                            <div class="number-counter" data-count="340">0</div>
-                            <div class="text-sm text-gray-600">평균 매출 증가율(%)</div>
+                        <div class="p-5 bg-white rounded-2xl shadow-lg">
+                            <div class="number-counter text-3xl font-black bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent" data-count="500">0</div>
+                            <div class="text-sm text-gray-700 font-semibold mt-2">매출 증가율(%)</div>
                         </div>
-                        <div class="p-4">
-                            <div class="number-counter" data-count="87">0</div>
-                            <div class="text-sm text-gray-600">구글 1페이지 진입률(%)</div>
+                        <div class="p-5 bg-white rounded-2xl shadow-lg">
+                            <div class="number-counter text-3xl font-black bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent" data-count="95">0</div>
+                            <div class="text-sm text-gray-700 font-semibold mt-2">고객 만족도(%)</div>
                         </div>
-                        <div class="p-4">
-                            <div class="number-counter" data-count="2.3">0</div>
-                            <div class="text-sm text-gray-600">SEO 상위노출(개월)</div>
+                        <div class="p-5 bg-white rounded-2xl shadow-lg">
+                            <div class="number-counter text-3xl font-black bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent" data-count="1.5">0</div>
+                            <div class="text-sm text-gray-700 font-semibold mt-2">SEO 상위노출(개월)</div>
                         </div>
                     </div>
                 </div>
@@ -235,16 +370,16 @@
 </section>
 
 <!-- Trust Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-gradient-to-r from-white to-blue-50">
     <div class="container mx-auto px-6 text-center">
         <div class="max-w-4xl mx-auto" data-sr="fade-up">
             <h3 class="text-2xl font-bold text-gray-800 mb-8">
-                코딩만 하는 개발자가 아닙니다. <span class="text-blue-800">비즈니스 파트너</span>입니다.
+                단순한 웹 제작이 아닙니다. <span class="text-blue-800">성공하는 비즈니스</span>를 만듭니다.
             </h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="text-center" data-sr="fade-up" data-sr-delay="100">
-                    <div class="text-3xl font-black text-blue-800 mb-2">15년</div>
-                    <div class="text-sm text-gray-600">개발 경력</div>
+                    <div class="text-3xl font-black text-blue-800 mb-2">10건</div>
+                    <div class="text-sm text-gray-600">프로젝트 완료</div>
                 </div>
                 <div class="text-center" data-sr="fade-up" data-sr-delay="200">
                     <div class="text-3xl font-black text-green-600 mb-2">87%</div>
@@ -272,22 +407,22 @@
             </h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="100">
+            <div class="card p-6 rounded-lg" data-sr="fade-up" data-sr-delay="100">
                 <div class="text-red-500 text-6xl mb-4">❌</div>
                 <h3 class="font-bold text-lg mb-2">홈페이지 만들었는데</h3>
                 <p class="text-gray-600">구글에서 안 보여요</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="200">
+            <div class="card p-6 rounded-lg" data-sr="fade-up" data-sr-delay="200">
                 <div class="text-red-500 text-6xl mb-4">❌</div>
                 <h3 class="font-bold text-lg mb-2">예쁘긴 한데</h3>
                 <p class="text-gray-600">검색해도 안 나와요</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="300">
+            <div class="card p-6 rounded-lg" data-sr="fade-up" data-sr-delay="300">
                 <div class="text-red-500 text-6xl mb-4">❌</div>
                 <h3 class="font-bold text-lg mb-2">문의는 고사하고</h3>
                 <p class="text-gray-600">방문자도 없어요</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="400">
+            <div class="card p-6 rounded-lg" data-sr="fade-up" data-sr-delay="400">
                 <div class="text-red-500 text-6xl mb-4">❌</div>
                 <h3 class="font-bold text-lg mb-2">기획부터</h3>
                 <p class="text-gray-600">막막해요</p>
@@ -297,11 +432,11 @@
 </section>
 
 <!-- Solution Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-gradient-to-r from-blue-50 to-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16" data-sr="fade-up">
             <h2 class="text-4xl font-black text-gray-800 mb-4">
-                <span class="text-4xl">🔥</span> 15년차는 이렇게 다릅니다
+                <span class="text-4xl">🔥</span> 롱스네이크는 이렇게 다릅니다
             </h2>
         </div>
         <div class="max-w-6xl mx-auto">
@@ -317,7 +452,7 @@
                     </div>
                     <div class="green-gradient p-6 rounded-lg text-center text-white">
                         <div class="text-2xl mb-2">👍</div>
-                        <h3 class="font-bold mb-2">15년차 파트너</h3>
+                        <h3 class="font-bold mb-2">롱스네이크 파트너</h3>
                         <p>기획부터 SEO까지 전체 설계</p>
                     </div>
                 </div>
@@ -404,7 +539,7 @@
         </div>
         <div class="max-w-4xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+                <div class="card p-8 rounded-lg" data-sr="fade-right">
                     <div class="flex items-center mb-4">
                         <div class="text-green-500 text-2xl mr-3">✅</div>
                         <h3 class="text-lg font-bold">구글 알고리즘 변화 15년간 추적</h3>
@@ -414,7 +549,7 @@
                         <h3 class="text-lg font-bold">기술적 SEO + 온페이지 최적화</h3>
                     </div>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+                <div class="card p-8 rounded-lg" data-sr="fade-left">
                     <div class="flex items-center mb-4">
                         <div class="text-green-500 text-2xl mr-3">✅</div>
                         <h3 class="text-lg font-bold">키워드 분석부터 컨텐츠 전략까지</h3>
@@ -438,7 +573,7 @@
 </section>
 
 <!-- Results Section -->
-<section id="results" class="py-20 bg-white">
+<section id="results" class="py-20 bg-gradient-to-r from-white to-purple-50">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16" data-sr="fade-up">
             <h2 class="text-4xl font-black text-gray-800 mb-4">
@@ -484,9 +619,9 @@
     <div class="container mx-auto px-6">
         <div class="text-center mb-16" data-sr="fade-up">
             <h2 class="text-4xl font-black text-gray-800 mb-4">
-                <span class="text-4xl">🤝</span> 15년차와 함께하는 여정
+                <span class="text-4xl">🤝</span> 롱스네이크와 함께하는 여정
             </h2>
-            <p class="text-xl text-gray-600">혼자 고민하지 마세요. 15년 경험이 함께 합니다.</p>
+            <p class="text-xl text-gray-600">혼자 고민하지 마세요. 롱스네이크의 전문 경험이 함께 합니다.</p>
         </div>
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-5 gap-4">
@@ -529,7 +664,7 @@
             </h2>
         </div>
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+            <div class="card p-8 rounded-lg" data-sr="fade-right">
                 <div class="flex items-center mb-4">
                     <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">김</div>
                     <div class="ml-4">
@@ -539,7 +674,7 @@
                 </div>
                 <p class="text-gray-700 italic">"기획 단계부터 함께 고민해주셔서 정말 든든했어요. 3개월 만에 매출이 2배로 늘었습니다."</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+            <div class="card p-8 rounded-lg" data-sr="fade-left">
                 <div class="flex items-center mb-4">
                     <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">박</div>
                     <div class="ml-4">
@@ -549,7 +684,7 @@
                 </div>
                 <p class="text-gray-700 italic">"SEO까지 신경써주니까 매출이 계속 늘어나요. 진짜 파트너를 만났다는 생각이 듭니다."</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+            <div class="card p-8 rounded-lg" data-sr="fade-right">
                 <div class="flex items-center mb-4">
                     <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">이</div>
                     <div class="ml-4">
@@ -559,7 +694,7 @@
                 </div>
                 <p class="text-gray-700 italic">"15년차의 조언 하나하나가 다 비즈니스에 도움돼요. 이제야 진짜 홈페이지를 만난 기분입니다."</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+            <div class="card p-8 rounded-lg" data-sr="fade-left">
                 <div class="flex items-center mb-4">
                     <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">최</div>
                     <div class="ml-4">
@@ -574,11 +709,11 @@
 </section>
 
 <!-- Differentiators Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-gradient-to-r from-purple-50 to-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16" data-sr="fade-up">
             <h2 class="text-4xl font-black text-gray-800 mb-4">
-                <span class="text-4xl">⚡</span> 왜 15년차 파트너를 선택해야 할까요?
+                <span class="text-4xl">⚡</span> 왜 롱스네이크를 선택해야 할까요?
             </h2>
         </div>
         <div class="max-w-4xl mx-auto space-y-8">
@@ -607,7 +742,7 @@
                 <div class="bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
                 <div>
                     <h3 class="text-xl font-bold text-purple-800 mb-2">불가능도 가능으로</h3>
-                    <p class="text-gray-700">"안 돼요" 없는 15년 경험</p>
+                    <p class="text-gray-700">"안 돼요" 없는 전문가 솔루션</p>
                 </div>
             </div>
             <div class="flex items-start space-x-4" data-sr="fade-right">
@@ -658,41 +793,47 @@
 <section id="contact" class="py-20 gradient-bg text-white">
     <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-5xl font-black mb-8" data-sr="fade-up">
-                <span class="text-4xl">🤝</span> 15년차 파트너와 함께 시작해보세요
+            <h2 class="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent" data-sr="fade-up">
+                <span class="text-5xl">✨</span> 롱스네이크와 함께<br>
+                <span class="text-yellow-400">성공 스토리</span>를 만들어보세요
             </h2>
-            <p class="text-2xl mb-12" data-sr="fade-up" data-sr-delay="300">
-                "기획부터 SEO까지, 15년차가 직접 상담해드립니다"
+            <p class="text-2xl md:text-3xl mb-12 leading-relaxed" data-sr="fade-up" data-sr-delay="300">
+                "역시 다른 프리미엄 웹 솔루션"<br>
+                <span class="text-yellow-400 font-black">전문가와 직접 상담하세요</span>
             </p>
 
-            <div class="bg-white text-gray-800 p-8 rounded-lg mb-12" data-sr="zoom-in">
-                <h3 class="text-2xl font-bold mb-6 text-yellow-600">⏰ 이번 달 한정 특별 혜택</h3>
-                <div class="grid md:grid-cols-3 gap-6 text-center">
-                    <div>
-                        <div class="text-3xl mb-2">✅</div>
-                        <h4 class="font-bold mb-2">비즈니스 분석 리포트</h4>
-                        <p class="text-green-600 font-bold">무료</p>
+            <div class="bg-gradient-to-br from-white via-blue-50 to-purple-50 text-gray-800 p-12 rounded-3xl mb-12 shadow-2xl border border-white/30" data-sr="zoom-in">
+                <h3 class="text-4xl font-black mb-8 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">✨ 롱스네이크 프리미엄 혜택</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-5xl mb-4">📋</div>
+                        <h4 class="font-black text-xl mb-3 text-blue-800">비즈니스 전략 분석</h4>
+                        <p class="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent font-bold text-2xl">무료 제공</p>
                     </div>
-                    <div>
-                        <div class="text-3xl mb-2">✅</div>
-                        <h4 class="font-bold mb-2">SEO 키워드 전략</h4>
-                        <p class="text-green-600 font-bold">무료 수립</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h4 class="font-black text-xl mb-3 text-purple-800">SEO 마스터 플랜</h4>
+                        <p class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-2xl">전문가 설계</p>
                     </div>
-                    <div>
-                        <div class="text-3xl mb-2">✅</div>
-                        <h4 class="font-bold mb-2">경쟁사 분석 리포트</h4>
-                        <p class="text-green-600 font-bold">무료</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="text-5xl mb-4">🏆</div>
+                        <h4 class="font-black text-xl mb-3 text-orange-800">경쟁사 완전 분석</h4>
+                        <p class="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent font-bold text-2xl">독점 인사이트</p>
                     </div>
                 </div>
             </div>
 
-            <button class="gold-gradient text-white px-12 py-6 rounded-lg text-2xl font-bold hover:shadow-2xl transition-all transform hover:scale-105 pulse-button mb-8" data-sr="fade-up" data-sr-delay="600">
-                무료 비즈니스 전략 상담
+            <button class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-16 py-8 rounded-3xl text-3xl font-black hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-500 transform hover:scale-110 shadow-2xl pulse-button mb-8 relative overflow-hidden" data-sr="fade-up" data-sr-delay="600">
+                <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 transform -skew-x-12 -translate-x-full animate-shimmer"></span>
+                <span class="relative z-10">🚀 롱스네이크와 대화하기</span>
             </button>
 
-            <p class="text-xl" data-sr="fade-up" data-sr-delay="900">
-                "혼자 고민하지 마세요. <span class="text-yellow-400 font-bold">경험 많은 파트너</span>가 함께 합니다."
-            </p>
+            <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-8 py-6 rounded-2xl inline-block" data-sr="fade-up" data-sr-delay="900">
+                <p class="text-2xl font-black">
+                    "이제 더 이상 혼자 고민하지 마세요"<br>
+                    <span class="text-red-700">프로가 함께 합니다</span>
+                </p>
+            </div>
         </div>
     </div>
 </section>
@@ -702,8 +843,8 @@
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-2xl font-bold mb-4">15년차 개발자</h3>
-                <p class="text-gray-400">돈 버는 홈페이지 전문가</p>
+                <h3 class="text-2xl font-bold mb-4">롱스네이크</h3>
+                <p class="text-gray-400">프리미엄 웹 솔루션 전문가</p>
                 <p class="text-gray-400">기획부터 SEO까지 함께하는 파트너</p>
             </div>
             <div>
@@ -725,7 +866,7 @@
             </div>
         </div>
         <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 15년차 개발자. 모든 권리 보유.</p>
+            <p>&copy; 2025 롱스네이크. 모든 권리 보유.</p>
         </div>
     </div>
 </footer>
