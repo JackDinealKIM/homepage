@@ -240,7 +240,7 @@
 <!-- Mobile Navigation Menu -->
 <div class="mobile-nav fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md z-50 p-6 md:hidden border-l border-gray-300">
     <div class="flex justify-between items-center mb-8">
-        <div class="text-xl font-bold gradient-text">RAREFIT</div>
+        <a href="index.html" class="text-xl font-bold gradient-text hover:opacity-80 transition-opacity">RAREFIT</a>
         <button class="mobile-close text-black text-2xl">&times;</button>
     </div>
     <nav class="space-y-4">
@@ -255,7 +255,7 @@
 <header class="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-300/50">
     <nav class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-            <div class="text-xl sm:text-2xl font-bold gradient-text">RAREFIT</div>
+            <a href="index.html" class="text-xl sm:text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">RAREFIT</a>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
@@ -279,45 +279,45 @@
 </header>
 
 <!-- 1. Hero Section -->
-<section id="hero" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+<section id="hero" class="min-h-screen flex items-center gradient-bg relative overflow-hidden pt-20">
     <div class="absolute inset-0">
         <img src="image/hero.avif" alt="Hero Background" class="w-full h-full object-cover opacity-30 hero-bg-image">
     </div>
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="container mx-auto px-6 relative z-10 text-center">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 text-white hero-title leading-tight">
-            <span class="number-highlight">의료진이 먼저 인정한</span>
+        <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 lg:mb-8 text-white hero-title leading-tight">
+            <span class="number-highlight">의료진이 먼저 인정한</span><br class="sm:hidden">
             마케팅 솔루션
         </h1>
-        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-6 md:mb-8 hero-subtitle font-semibold">
-            오직, <span class="text-white font-bold">환자 증가, 매출 상승으로만 증명</span>합니다.
+        <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 mb-4 md:mb-6 lg:mb-8 hero-subtitle font-semibold">
+            오직, <span class="text-white font-bold">환자 증가, 매출 상승으로만<br class="sm:hidden"> 증명</span>합니다.
         </h2>
-        <p class="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 md:mb-12 max-w-3xl mx-auto hero-text leading-relaxed">
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 md:mb-10 lg:mb-12 max-w-3xl mx-auto hero-text leading-relaxed">
             <u>실제로 환자가 늘어나는 마케팅만 합니다.</u>
         </p>
-        <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
+        <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
             무료 상담 신청하기
         </button>
         
         <!-- Hero Stats Section -->
-        <div class="hero-stats mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
-                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+        <div class="hero-stats mt-10 md:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
+                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
                     <span class="hero-stat-number text-purple-600" data-target="97.8">0</span><span class="text-black">%</span>
                 </div>
-                <div class="text-base md:text-lg text-gray-700 font-medium">재계약률</div>
+                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">재계약률</div>
             </div>
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
-                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
+                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
                     <span class="hero-stat-number text-purple-600" data-target="11">0</span><span class="text-black">건</span>
                 </div>
-                <div class="text-base md:text-lg text-gray-700 font-medium">2개월 0건 ➡️ 11건 계약</div>
+                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">2개월 0건 ➡️ 11건 계약</div>
             </div>
-            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
-                <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+            <div class="text-center hero-stat-item bg-white/95 backdrop-blur-sm rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border border-white/20">
+                <div class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 md:mb-3">
                     <span class="hero-stat-number text-purple-600" data-target="4.9">0</span><span class="text-black">/5점</span>
                 </div>
-                <div class="text-base md:text-lg text-gray-700 font-medium">평점</div>
+                <div class="text-sm md:text-base lg:text-lg text-gray-700 font-medium">평점</div>
             </div>
         </div>
     </div>
@@ -329,7 +329,7 @@
 </section>
 
 <!-- 2. About Section -->
-<!--<section id="about" class="py-20 bg-gray-100">-->
+<!--<section id="about" class="py-12 md:py-16 lg:py-20 bg-gray-100">-->
 <!--    <div class="container mx-auto px-6">-->
 <!--        <div class="text-center mb-16">-->
 <!--            <div class="mb-6">-->
@@ -388,7 +388,7 @@
 <!--</section>-->
 
 <!-- 3. Customer Reviews Section -->
-<section id="reviews" class="py-20 bg-white">
+<section id="reviews" class="py-12 md:py-16 lg:py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -396,10 +396,10 @@
                     User Reviews
                 </span>
             </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 animate-element zoom-in">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold gradient-text mb-6 md:mb-8 animate-element zoom-in">
                 레어핏 실제 고객 후기
             </h2>
-            <p class="text-xl text-gray-600 animate-element fade-up stagger-1">조작없는 생생한 실제 후기들</p>
+            <p class="text-base sm:text-lg md:text-xl text-gray-600 animate-element fade-up stagger-1">조작없는 생생한 실제 후기들</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -482,7 +482,7 @@
 </section>
 
 <!-- Marketing Solutions Section -->
-<section id="marketing-solution" class="py-20 bg-white">
+<section id="marketing-solution" class="py-12 md:py-16 lg:py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -490,11 +490,11 @@
                     Our Solutions
                 </span>
             </div>
-            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4 animate-element slide-up leading-tight">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-3 md:mb-4 animate-element slide-up leading-tight">
                 매출이 나오는 마케팅에는<br>
                 <span class="gradient-text">순서가 있습니다</span>
             </h2>
-            <p class="text-xl sm:text-2xl text-gray-600 animate-element fade-up stagger-1 max-w-4xl mx-auto leading-relaxed font-medium mt-6">
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 animate-element fade-up stagger-1 max-w-4xl mx-auto leading-relaxed font-medium mt-4 md:mt-6">
                 고객이 우리를 찾아오는 <strong class="text-purple-700 gradient-text">4단계 시스템</strong>
             </p>
         </div>
@@ -510,7 +510,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="text-4xl font-bold text-purple-600 mb-2 block">1️⃣</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-600 mb-2 block">1️⃣</span>
                         <h3 class="text-xl lg:text-2xl font-bold text-black">고객이 찾아올 수밖에 없는 길 만들기</h3>
                     </div>
                 </div>
@@ -560,7 +560,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="text-4xl font-bold text-blue-600 mb-2 block">2️⃣</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-2 block">2️⃣</span>
                         <h3 class="text-xl lg:text-2xl font-bold text-black">검색하면 우리가 1등으로 나오게 하기</h3>
                     </div>
                 </div>
@@ -615,7 +615,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="text-4xl font-bold text-green-600 mb-2 block">3️⃣</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2 block">3️⃣</span>
                         <h3 class="text-xl lg:text-2xl font-bold text-black">숫자로 증명하는 진짜 효과</h3>
                     </div>
                 </div>
@@ -674,7 +674,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="text-4xl font-bold text-orange-600 mb-2 block">4️⃣</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-600 mb-2 block">4️⃣</span>
                         <h3 class="text-xl lg:text-2xl font-bold text-black">안 되는 건 바꾸고, 잘 되는 건 더 키우기</h3>
                     </div>
                 </div>
@@ -721,7 +721,7 @@
 </section>
 
 <!-- 4. Services Section -->
-<section id="services" class="py-20 bg-gray-100">
+<section id="services" class="py-12 md:py-16 lg:py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -729,7 +729,7 @@
                     Our Approach
                 </span>
             </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8 reveal-element">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold gradient-text mb-6 md:mb-8 reveal-element">
                 레어핏의 2가지 핵심 접근법
             </h2>
         </div>
@@ -745,7 +745,7 @@
                             </svg>
                         </div>
                         <div>
-                            <span class="text-4xl font-bold text-purple-600 mb-2 block">01</span>
+                            <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-600 mb-2 block">01</span>
                             <h3 class="text-2xl lg:text-3xl font-bold text-black">'고객이 누구인가'</h3>
                         </div>
                     </div>
@@ -803,7 +803,7 @@
                             </svg>
                         </div>
                         <div>
-                            <span class="text-4xl font-bold text-purple-600 mb-2 block">02</span>
+                            <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-600 mb-2 block">02</span>
                             <h3 class="text-2xl lg:text-3xl font-bold text-black">'처음부터 끝까지<br>우리를 어떻게 마주치는가'</h3>
                         </div>
                     </div>
@@ -847,7 +847,7 @@
 </section>
 
 <!-- 8. Service Offerings Section -->
-<section class="py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+<section class="py-12 md:py-18 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
     <div class="container mx-auto px-6 relative">
         <!-- Section Header -->
         <div class="text-center mb-20">
@@ -861,10 +861,10 @@
                     We Provide
                 </span>
             </div>
-            <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
                 <span class="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">이 모든 걸 다 해드려요</span>
             </h2>
-            <p class="text-xl md:text-2xl text-gray-600 font-semibold">복잡한 건 저희가, 결과는 원장님이</p>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-semibold">복잡한 건 저희가, 결과는 원장님이</p>
         </div>
 
         <!-- 4가지 핵심 서비스 -->
@@ -1066,7 +1066,7 @@
 </section>
 
 <!-- 7. FAQ Section -->
-<section id="faq" class="py-20 bg-gray-100">
+<section id="faq" class="py-12 md:py-16 lg:py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -1074,10 +1074,10 @@
                     FAQ
                 </span>
             </div>
-            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4 animate-element fade-down leading-tight">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-3 md:mb-4 animate-element fade-down leading-tight">
                 솔직하게 답변드립니다
             </h2>
-            <p class="text-xl sm:text-2xl text-gray-600 animate-element fade-up stagger-1 font-medium">
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 animate-element fade-up stagger-1 font-medium">
                 다들 이런 걸 궁금해하시더라고요
             </p>
         </div>
@@ -1320,18 +1320,18 @@
 
 
 <!-- 8. Service Offerings Section -->
-<section class="py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+<section class="py-12 md:py-18 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
     <div class="container mx-auto px-6 relative">
         <!-- CTA -->
-        <div class="text-center bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl p-12 text-white animate-element">
-            <h3 class="text-3xl font-bold mb-6">더 자세히 알고 싶다면?</h3>
-            <p class="text-xl mb-8">무료 상담에서 확인해보세요!</p>
+        <div class="text-center bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl p-6 md:p-10 lg:p-12 text-white animate-element">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">더 자세히 알고 싶다면?</h3>
+            <p class="text-base sm:text-lg md:text-xl mb-6 md:mb-8">무료 상담에서 확인해보세요!</p>
             <p>&nbsp;</p>
             <div class="space-y-4">
-                <button class="bg-white text-purple-600 hover:bg-gray-100 px-12 py-4 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl">
                     무료 상담 신청하기
                 </button>
-                <p class="text-purple-200">💡 상담 받는다고 귀찮은 영업 전화 안 드려요! 정말 필요한 분들과만 함께 일해요.</p>
+                <p class="text-sm sm:text-base text-purple-200">💡 상담 받는다고 귀찮은 영업 전화 안 드려요! 정말 필요한 분들과만 함께 일해요.</p>
             </div>
         </div>
     </div>
