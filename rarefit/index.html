@@ -11,8 +11,9 @@
             theme: {
                 extend: {
                     colors: {
-                        'accent-gray': '#6B7280',
+                        'accent-purple': '#7C3AED',
                         'accent-light': '#F3F4F6',
+                        'deep-purple': '#581C87',
                     }
                 }
             }
@@ -23,16 +24,16 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #4B5563 100%);
+            background: linear-gradient(135deg, #581C87 0%, #7C3AED 50%, #A855F7 100%);
         }
         .gradient-text {
-            background: linear-gradient(135deg, #000000 0%, #1F2937 50%, #374151 100%);
+            background: linear-gradient(135deg, #581C87 0%, #7C3AED 50%, #A855F7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .accent-text {
-            color: #6B7280;
+            color: #7C3AED;
         }
         .hero-title, .hero-subtitle, .hero-text, .hero-cta, .hero-stats, .hero-stat-item {
             opacity: 0;
@@ -236,34 +237,34 @@
         }
     </style>
 </head>
-<body class="bg-white text-black">
+<body class="bg-gradient-to-br from-white via-purple-25 to-purple-50 text-black">
 <!-- Mobile Navigation Menu -->
-<div class="mobile-nav fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md z-50 p-6 md:hidden border-l border-gray-300">
+<div class="mobile-nav fixed top-0 right-0 h-full w-64 bg-purple-50/95 backdrop-blur-md z-50 p-6 md:hidden border-l border-purple-200">
     <div class="flex justify-between items-center mb-8">
         <a href="index.html" class="text-xl font-bold gradient-text hover:opacity-80 transition-opacity">RAREFIT</a>
         <button class="mobile-close text-black text-2xl">&times;</button>
     </div>
     <nav class="space-y-4">
-        <a href="#hero" class="block text-lg hover:text-gray-600 transition-colors">홈</a>
-        <a href="#reviews" class="block text-lg hover:text-gray-600 transition-colors">후기</a>
-        <a href="#marketing-solution" class="block text-lg hover:text-gray-600 transition-colors">솔루션</a>
-        <a href="#faq" class="block text-lg hover:text-gray-600 transition-colors">FAQ</a>
+        <a href="#hero" class="block text-lg hover:text-purple-600 transition-colors">홈</a>
+        <a href="#reviews" class="block text-lg hover:text-purple-600 transition-colors">후기</a>
+        <a href="#marketing-solution" class="block text-lg hover:text-purple-600 transition-colors">솔루션</a>
+        <a href="#faq" class="block text-lg hover:text-purple-600 transition-colors">FAQ</a>
     </nav>
 </div>
 
 <!-- Header -->
-<header class="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-300/50">
+<header class="fixed top-0 w-full z-40 bg-purple-50/95 backdrop-blur-md border-b border-purple-200/50">
     <nav class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
             <a href="index.html" class="text-xl sm:text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">RAREFIT</a>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-                <a href="#hero" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">홈</a>
-                <a href="#reviews" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">후기</a>
-                <a href="#marketing-solution" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">솔루션</a>
-                <a href="#faq" class="nav-link hover:text-gray-600 transition-all duration-300 text-sm lg:text-base">FAQ</a>
-                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-6 py-2 rounded-full font-bold text-sm lg:text-base transition-all transform hover:scale-105 shadow-lg">
+                <a href="#hero" class="nav-link hover:text-purple-600 transition-all duration-300 text-sm lg:text-base">홈</a>
+                <a href="#reviews" class="nav-link hover:text-purple-600 transition-all duration-300 text-sm lg:text-base">후기</a>
+                <a href="#marketing-solution" class="nav-link hover:text-purple-600 transition-all duration-300 text-sm lg:text-base">솔루션</a>
+                <a href="#faq" class="nav-link hover:text-purple-600 transition-all duration-300 text-sm lg:text-base">FAQ</a>
+                <button class="bg-gradient-to-r from-purple-700 to-purple-900 text-white hover:from-purple-800 hover:to-purple-950 px-6 py-2 rounded-full font-bold text-sm lg:text-base transition-all transform hover:scale-105 shadow-lg">
                     상담신청
                 </button>
             </div>
@@ -294,14 +295,14 @@
         <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 md:mb-10 lg:mb-12 max-w-3xl mx-auto hero-text leading-relaxed">
             <u>실제로 환자가 늘어나는 마케팅만 합니다.</u>
         </p>
-        <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
+        <button class="bg-gradient-to-r from-purple-700 to-purple-900 text-white hover:from-purple-800 hover:to-purple-950 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl hero-cta">
             무료 상담 신청하기
         </button>
     </div>
     
     <!-- Hero Stats Section -->
     <div class="hero-stats absolute left-0 right-0 bottom-0 z-10">
-        <div class="bg-white/95 backdrop-blur-sm py-6 md:py-8 lg:py-10 shadow-2xl border-t border-b border-white/20">
+        <div class="bg-gradient-to-r from-white/95 to-purple-50/95 backdrop-blur-sm py-6 md:py-8 lg:py-10 shadow-2xl border-t border-b border-purple-200/30">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-3 max-w-6xl mx-auto">
                     <div class="text-center hero-stat-item py-2 md:py-4">
@@ -337,7 +338,7 @@
 </section>
 
 <!-- 2. About Section -->
-<!--<section id="about" class="py-12 md:py-16 lg:py-20 bg-gray-100">-->
+<!--<section id="about" class="py-12 md:py-16 lg:py-20 bg-purple-50">-->
 <!--    <div class="container mx-auto px-6">-->
 <!--        <div class="text-center mb-16">-->
 <!--            <div class="mb-6">-->
@@ -396,7 +397,7 @@
 <!--</section>-->
 
 <!-- 3. Customer Reviews Section -->
-<section id="reviews" class="py-12 md:py-16 lg:py-20 bg-white">
+<section id="reviews" class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-purple-25 to-purple-50">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -490,7 +491,7 @@
 </section>
 
 <!-- Marketing Solutions Section -->
-<section id="marketing-solution" class="py-12 md:py-16 lg:py-20 bg-white">
+<section id="marketing-solution" class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-purple-25 to-purple-50">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -729,7 +730,7 @@
 </section>
 
 <!-- 4. Services Section -->
-<section id="services" class="py-12 md:py-16 lg:py-20 bg-gray-100">
+<section id="services" class="py-12 md:py-16 lg:py-20 bg-purple-50">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -745,7 +746,7 @@
         <div class="grid lg:grid-cols-2 gap-12">
             <!-- 첫 번째 접근법 -->
             <div class="reveal-element">
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
+                <div class="bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -803,7 +804,7 @@
 
             <!-- 두 번째 접근법 -->
             <div class="reveal-element">
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
+                <div class="bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl border border-gray-200 h-full">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mr-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -859,7 +860,7 @@
     <div class="container mx-auto px-6 relative">
         <!-- Section Header -->
         <div class="text-center mb-20">
-            <!--            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full mb-8">-->
+            <!--            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-full mb-8">-->
             <!--                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
             <!--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>-->
             <!--                </svg>-->
@@ -870,7 +871,7 @@
                 </span>
             </div>
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
-                <span class="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">이 모든 걸 다 해드려요</span>
+                <span class="bg-gradient-to-r from-purple-700 to-purple-900 bg-clip-text text-transparent">이 모든 걸 다 해드려요</span>
             </h2>
             <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-semibold">복잡한 건 저희가, 결과는 원장님이</p>
         </div>
@@ -878,17 +879,17 @@
         <!-- 4가지 핵심 서비스 -->
         <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
             <!-- 1. 브랜드 블로그 -->
-            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+            <div class="group bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-100 to-transparent rounded-bl-full opacity-50"></div>
 
                 <div class="relative z-10">
                     <div class="flex items-center mb-6">
-                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl mr-4">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl mr-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                         </div>
-                        <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-4 py-2 rounded-full text-sm font-bold">1</div>
+                        <div class="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-4 py-2 rounded-full text-sm font-bold">1</div>
                     </div>
 
                     <h3 class="text-2xl font-bold text-black mb-4">브랜드 블로그</h3>
@@ -924,7 +925,7 @@
             </div>
 
             <!-- 2. 블로그 배포 -->
-            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+            <div class="group bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-full opacity-50"></div>
 
                 <div class="relative z-10">
@@ -970,7 +971,7 @@
             </div>
 
             <!-- 3. 카페 침투 -->
-            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+            <div class="group bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-green-100 to-transparent rounded-bl-full opacity-50"></div>
 
                 <div class="relative z-10">
@@ -1019,7 +1020,7 @@
             </div>
 
             <!-- 4. 플레이스 셋팅 -->
-            <div class="group bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
+            <div class="group bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden animate-element">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-100 to-transparent rounded-bl-full opacity-50"></div>
 
                 <div class="relative z-10">
@@ -1074,7 +1075,7 @@
 </section>
 
 <!-- 7. FAQ Section -->
-<section id="faq" class="py-12 md:py-16 lg:py-20 bg-gray-100">
+<section id="faq" class="py-12 md:py-16 lg:py-20 bg-purple-50">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <div class="mb-6">
@@ -1094,7 +1095,7 @@
             <!-- 비용 & 계약 관련 -->
             <div class="mb-12">
                 <div class="space-y-4">
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-1">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q1. 비용이 얼마나 드나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1117,7 +1118,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-2">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q2. 계약 기간은 얼마나 되나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1146,7 +1147,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-3">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-3">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-yellow-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q3. 중간에 그만둘 수 있나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1171,7 +1172,7 @@
             <!-- 효과 & 성과 관련 -->
             <div class="mb-12">
                 <div class="space-y-4">
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-1">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-green-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q4. 정말 효과가 있나요? 보장해주나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1203,7 +1204,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-2">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-green-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q5. 언제부터 효과를 볼 수 있나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1249,7 +1250,7 @@
             <!-- 작업 과정 관련 -->
             <div class="mb-12">
                 <div class="space-y-4">
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-1">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-1">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-blue-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q7. 원장님이 직접 해야 할 일이 많나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1281,7 +1282,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item bg-white rounded-3xl shadow-lg animate-element fade-up stagger-2">
+                    <div class="faq-item bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-lg animate-element fade-up stagger-2">
                         <div class="flex justify-between items-center cursor-pointer p-6 border-l-4 border-blue-500">
                             <h4 class="text-lg font-bold text-black flex-1">Q8. 블로그 글은 누가 쓰나요?</h4>
                             <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1331,12 +1332,12 @@
 <section class="py-12 md:py-18 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
     <div class="container mx-auto px-6 relative">
         <!-- CTA -->
-        <div class="text-center bg-gradient-to-r from-purple-600 to-purple-800 rounded-3xl p-6 md:p-10 lg:p-12 text-white animate-element">
+        <div class="text-center bg-gradient-to-r from-purple-700 to-purple-900 rounded-3xl p-6 md:p-10 lg:p-12 text-white animate-element">
             <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">더 자세히 알고 싶다면?</h3>
             <p class="text-base sm:text-lg md:text-xl mb-6 md:mb-8">무료 상담에서 확인해보세요!</p>
             <p>&nbsp;</p>
             <div class="space-y-4">
-                <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl">
+                <button class="bg-white text-purple-600 hover:bg-purple-50 px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all transform hover:scale-105 shadow-2xl">
                     무료 상담 신청하기
                 </button>
                 <p class="text-sm sm:text-base text-purple-200">💡 상담 받는다고 귀찮은 영업 전화 안 드려요! 정말 필요한 분들과만 함께 일해요.</p>
@@ -1346,7 +1347,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-16 bg-gray-100 border-t border-gray-300/50">
+<footer class="py-16 bg-purple-50 border-t border-gray-300/50">
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-3 gap-8">
             <div>
