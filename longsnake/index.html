@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15년차 개발자 - 돈 버는 홈페이지 전문가</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #374151;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #111827;
+            font-weight: bold;
+        }
+
+        p {
+            color: #6b7280;
+        }
+
+        .text-white {
+            color: #ffffff !important;
+        }
+
+        .text-gray-800 {
+            color: #1f2937 !important;
+        }
+
+        .text-gray-700 {
+            color: #374151 !important;
+        }
+
+        .text-gray-600 {
+            color: #4b5563 !important;
+        }
+
+        .text-blue-800 {
+            color: #1e40af !important;
+        }
+
+        .text-yellow-400 {
+            color: #fbbf24 !important;
+        }
+
+        .text-green-400 {
+            color: #34d399 !important;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .green-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .typing-animation {
+            border-right: 2px solid #f59e0b;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: #f59e0b; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .number-counter {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f59e0b;
+        }
+
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        /* 기본 애니메이션을 위한 CSS */
+        [data-sr] {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease-out;
+        }
+
+        [data-sr].sr-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 버튼 스타일 강화 */
+        button {
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 링크 스타일 */
+        a {
+            color: #374151;
+            text-decoration: none;
+        }
+
+        /* 추가적인 반응형 설정 */
+        @media (max-width: 768px) {
+            .number-counter {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-white shadow-lg z-50" data-sr="fade-down">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-800">15년차 개발자</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#hero" class="text-gray-700 hover:text-blue-800 transition">홈</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-800 transition">서비스</a>
+                <a href="#results" class="text-gray-700 hover:text-blue-800 transition">성과</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">상담</a>
+            </div>
+            <button class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-yellow-600 transition">
+                무료 상담
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="gradient-bg min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+                <h1 class="text-5xl md:text-6xl font-black mb-6" data-sr="fade-right">
+                    홈페이지 만들기
+                    <span class="text-yellow-400">vs</span><br>
+                    <span class="text-yellow-400">돈 버는</span> 홈페이지 만들기
+                </h1>
+                <h2 class="text-3xl font-bold mb-8 typing-animation" data-sr="fade-right" data-sr-delay="300">
+                    뭘 원하세요?
+                </h2>
+                <p class="text-xl mb-6" data-sr="fade-right" data-sr-delay="600">
+                    15년차 개발자가 <span class="text-yellow-400 font-bold">기획부터 SEO까지</span> 함께 고민합니다.<br>
+                    만드는 것도 중요하지만, <span class="text-green-400 font-bold">찾아지는 것</span>은 더 중요하니까요.
+                </p>
+                <div class="text-lg mb-8 flex items-center" data-sr="fade-right" data-sr-delay="900">
+                    <span class="text-2xl mr-2">🔍</span>
+                    <span class="text-green-400 font-bold">구글 1페이지 노출</span>
+                    <span class="mx-2">+</span>
+                    <span class="text-2xl mr-2">💰</span>
+                    <span class="text-yellow-400 font-bold">매출 증가</span>
+                    <span class="mx-2">=</span>
+                    <span class="font-bold">진짜 성공</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4" data-sr="fade-up" data-sr-delay="1200">
+                    <button class="bg-gray-400 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-500 transition flex items-center">
+                        <span class="text-2xl mr-2">🎨</span>
+                        그냥 예쁘게만
+                    </button>
+                    <button class="gold-gradient text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg transition pulse-button flex items-center">
+                        <span class="text-2xl mr-2">💰</span>
+                        매출까지 챙기기
+                    </button>
+                </div>
+            </div>
+            <div class="floating" data-sr="fade-left">
+                <div class="bg-white rounded-lg shadow-2xl p-8">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-black text-blue-800 mb-2">15년 경력</div>
+                        <div class="text-gray-600">검증된 실력</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="p-4">
+                            <div class="number-counter" data-count="200">0</div>
+                            <div class="text-sm text-gray-600">프로젝트 완료</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="number-counter" data-count="340">0</div>
+                            <div class="text-sm text-gray-600">평균 매출 증가율(%)</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="number-counter" data-count="87">0</div>
+                            <div class="text-sm text-gray-600">구글 1페이지 진입률(%)</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="number-counter" data-count="2.3">0</div>
+                            <div class="text-sm text-gray-600">SEO 상위노출(개월)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+        <div class="max-w-4xl mx-auto" data-sr="fade-up">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8">
+                코딩만 하는 개발자가 아닙니다. <span class="text-blue-800">비즈니스 파트너</span>입니다.
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center" data-sr="fade-up" data-sr-delay="100">
+                    <div class="text-3xl font-black text-blue-800 mb-2">15년</div>
+                    <div class="text-sm text-gray-600">개발 경력</div>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="200">
+                    <div class="text-3xl font-black text-green-600 mb-2">87%</div>
+                    <div class="text-sm text-gray-600">구글 1페이지 진입률</div>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="300">
+                    <div class="text-3xl font-black text-yellow-600 mb-2">340%</div>
+                    <div class="text-sm text-gray-600">평균 매출 증가율</div>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="400">
+                    <div class="text-3xl font-black text-purple-600 mb-2">2.3개월</div>
+                    <div class="text-sm text-gray-600">SEO 상위 노출</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">🤔</span> 이런 고민 있으시죠?
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="100">
+                <div class="text-red-500 text-6xl mb-4">❌</div>
+                <h3 class="font-bold text-lg mb-2">홈페이지 만들었는데</h3>
+                <p class="text-gray-600">구글에서 안 보여요</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="200">
+                <div class="text-red-500 text-6xl mb-4">❌</div>
+                <h3 class="font-bold text-lg mb-2">예쁘긴 한데</h3>
+                <p class="text-gray-600">검색해도 안 나와요</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="300">
+                <div class="text-red-500 text-6xl mb-4">❌</div>
+                <h3 class="font-bold text-lg mb-2">문의는 고사하고</h3>
+                <p class="text-gray-600">방문자도 없어요</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg" data-sr="fade-up" data-sr-delay="400">
+                <div class="text-red-500 text-6xl mb-4">❌</div>
+                <h3 class="font-bold text-lg mb-2">기획부터</h3>
+                <p class="text-gray-600">막막해요</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">🔥</span> 15년차는 이렇게 다릅니다
+            </h2>
+        </div>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid gap-8">
+                <div class="grid md:grid-cols-3 gap-6 items-center" data-sr="fade-right">
+                    <div class="bg-red-100 p-6 rounded-lg text-center">
+                        <div class="text-2xl mb-2">👎</div>
+                        <h3 class="font-bold mb-2">일반 업체</h3>
+                        <p class="text-gray-700">홈페이지만 만들어줌</p>
+                    </div>
+                    <div class="text-center text-3xl font-bold text-gray-400">
+                        vs
+                    </div>
+                    <div class="green-gradient p-6 rounded-lg text-center text-white">
+                        <div class="text-2xl mb-2">👍</div>
+                        <h3 class="font-bold mb-2">15년차 파트너</h3>
+                        <p>기획부터 SEO까지 전체 설계</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 items-center" data-sr="fade-left">
+                    <div class="bg-red-100 p-6 rounded-lg text-center">
+                        <div class="text-2xl mb-2">👎</div>
+                        <h3 class="font-bold mb-2">"완성했습니다" 끝</h3>
+                        <p class="text-gray-700">이후 관리 없음</p>
+                    </div>
+                    <div class="text-center text-3xl font-bold text-gray-400">
+                        vs
+                    </div>
+                    <div class="green-gradient p-6 rounded-lg text-center text-white">
+                        <div class="text-2xl mb-2">👍</div>
+                        <h3 class="font-bold mb-2">런칭 후 성과까지 책임</h3>
+                        <p>지속적인 파트너십</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 items-center" data-sr="fade-right">
+                    <div class="bg-red-100 p-6 rounded-lg text-center">
+                        <div class="text-2xl mb-2">👎</div>
+                        <h3 class="font-bold mb-2">검색 노출?</h3>
+                        <p class="text-gray-700">알아서 하세요</p>
+                    </div>
+                    <div class="text-center text-3xl font-bold text-gray-400">
+                        vs
+                    </div>
+                    <div class="green-gradient p-6 rounded-lg text-center text-white">
+                        <div class="text-2xl mb-2">👍</div>
+                        <h3 class="font-bold mb-2">구글 1페이지 진입 보장</h3>
+                        <p>SEO 전문가 수준</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black mb-4">핵심 서비스</h2>
+            <p class="text-xl text-gray-300">15년 노하우가 담긴 차별화된 서비스</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-blue-800 p-8 rounded-lg text-center" data-sr="flip-left" data-sr-delay="100">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="text-xl font-bold mb-4">비즈니스 기획 상담</h3>
+                <p class="text-blue-200 mb-4">고객과 함께 전략 수립</p>
+                <p class="text-sm text-blue-100">"뭘 만들까요?" 부터</p>
+            </div>
+            <div class="gold-gradient p-8 rounded-lg text-center" data-sr="flip-left" data-sr-delay="200">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="text-xl font-bold mb-4">매출 최적화 개발</h3>
+                <p class="text-yellow-100 mb-4">고객이 지갑을 열게 하는</p>
+                <p class="text-sm text-yellow-50">심리학 기반 설계</p>
+            </div>
+            <div class="green-gradient p-8 rounded-lg text-center" data-sr="flip-left" data-sr-delay="300">
+                <div class="text-4xl mb-4">🔍</div>
+                <h3 class="text-xl font-bold mb-4">SEO 쌉가능 작업</h3>
+                <p class="text-green-100 mb-4">구글 1페이지 진입</p>
+                <p class="text-sm text-green-50">키워드 분석부터 적용</p>
+            </div>
+            <div class="bg-purple-800 p-8 rounded-lg text-center" data-sr="flip-left" data-sr-delay="400">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold mb-4">지속 성장 파트너십</h3>
+                <p class="text-purple-200 mb-4">런칭 후에도 계속</p>
+                <p class="text-sm text-purple-100">함께 성장하는 관계</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO Section -->
+<section class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">🔍</span> SEO도 15년 노하우가 있습니다
+            </h2>
+        </div>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500 text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">구글 알고리즘 변화 15년간 추적</h3>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-green-500 text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">기술적 SEO + 온페이지 최적화</h3>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500 text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">키워드 분석부터 컨텐츠 전략까지</h3>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-green-500 text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">평균 2.3개월 만에 상위 노출</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center bg-green-800 text-white p-8 rounded-lg" data-sr="zoom-in">
+                <p class="text-xl font-bold mb-2">
+                    "홈페이지 만들고 나서 SEO 생각하시나요?"
+                </p>
+                <p class="text-lg">
+                    저는 <span class="text-yellow-400 font-bold">기획할 때부터 SEO를 심어넣습니다.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">🎯</span> 숫자로 증명하는 파트너십
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="100">
+                <div class="text-4xl font-black text-yellow-600 mb-2 counter" data-count="340">0</div>
+                <div class="text-sm text-gray-600">매출 증가(%)</div>
+            </div>
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="200">
+                <div class="text-4xl font-black text-green-600 mb-2 counter" data-count="87">0</div>
+                <div class="text-sm text-gray-600">구글 1페이지 진입률(%)</div>
+            </div>
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="300">
+                <div class="text-4xl font-black text-blue-600 mb-2 counter" data-count="500">0</div>
+                <div class="text-sm text-gray-600">검색 유입 증가(%)</div>
+            </div>
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="400">
+                <div class="text-4xl font-black text-purple-600 mb-2 counter" data-count="60">0</div>
+                <div class="text-sm text-gray-600">이탈률 감소(%)</div>
+            </div>
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="500">
+                <div class="text-4xl font-black text-red-600 mb-2 counter" data-count="2.3">0</div>
+                <div class="text-sm text-gray-600">상위 노출(개월)</div>
+            </div>
+            <div class="text-center p-6" data-sr="fade-up" data-sr-delay="600">
+                <div class="text-4xl font-black text-indigo-600 mb-2 counter" data-count="94">0</div>
+                <div class="text-sm text-gray-600">고객 재의뢰율(%)</div>
+            </div>
+        </div>
+        <div class="text-center" data-sr="zoom-in">
+            <p class="text-xl font-bold text-gray-800">
+                "만들기만 하는 게 아니라, <span class="text-blue-800">성과까지 책임집니다</span>"
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-20 bg-blue-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">🤝</span> 15년차와 함께하는 여정
+            </h2>
+            <p class="text-xl text-gray-600">혼자 고민하지 마세요. 15년 경험이 함께 합니다.</p>
+        </div>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="text-center" data-sr="fade-up" data-sr-delay="100">
+                    <div class="bg-blue-800 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="font-bold mb-2 text-blue-800">비즈니스 분석</h3>
+                    <p class="text-sm text-gray-600">고객사 현황 파악</p>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="200">
+                    <div class="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="font-bold mb-2 text-green-600">전략 기획</h3>
+                    <p class="text-sm text-gray-600">타겟/경쟁사 분석</p>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="300">
+                    <div class="bg-yellow-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="font-bold mb-2 text-yellow-600">SEO 설계</h3>
+                    <p class="text-sm text-gray-600">키워드 전략 수립</p>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="400">
+                    <div class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                    <h3 class="font-bold mb-2 text-purple-600">개발 & 최적화</h3>
+                    <p class="text-sm text-gray-600">최적화 개발 진행</p>
+                </div>
+                <div class="text-center" data-sr="fade-up" data-sr-delay="500">
+                    <div class="bg-red-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">5</div>
+                    <h3 class="font-bold mb-2 text-red-600">성과 모니터링</h3>
+                    <p class="text-sm text-gray-600">지속적 개선 제안</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">💬</span> 진짜 파트너를 만난 고객들
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">김</div>
+                    <div class="ml-4">
+                        <h4 class="font-bold">김○○ 대표</h4>
+                        <div class="text-sm text-gray-500">제조업</div>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic">"기획 단계부터 함께 고민해주셔서 정말 든든했어요. 3개월 만에 매출이 2배로 늘었습니다."</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">박</div>
+                    <div class="ml-4">
+                        <h4 class="font-bold">박○○ 팀장</h4>
+                        <div class="text-sm text-gray-500">IT 서비스</div>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic">"SEO까지 신경써주니까 매출이 계속 늘어나요. 진짜 파트너를 만났다는 생각이 듭니다."</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-right">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">이</div>
+                    <div class="ml-4">
+                        <h4 class="font-bold">이○○ 사장</h4>
+                        <div class="text-sm text-gray-500">온라인 쇼핑몰</div>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic">"15년차의 조언 하나하나가 다 비즈니스에 도움돼요. 이제야 진짜 홈페이지를 만난 기분입니다."</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg" data-sr="fade-left">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">최</div>
+                    <div class="ml-4">
+                        <h4 class="font-bold">최○○ 실장</h4>
+                        <div class="text-sm text-gray-500">교육 서비스</div>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic">"구글에서 1페이지에 뜨니까 문의가 폭주해요. 다른 업체에서 안 된다던 기능을 3일 만에..."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Differentiators Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-sr="fade-up">
+            <h2 class="text-4xl font-black text-gray-800 mb-4">
+                <span class="text-4xl">⚡</span> 왜 15년차 파트너를 선택해야 할까요?
+            </h2>
+        </div>
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="flex items-start space-x-4" data-sr="fade-right">
+                <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+                <div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">기획부터 함께</h3>
+                    <p class="text-gray-700">"뭘 만들까요?"부터 같이 고민하는 진짜 파트너</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4" data-sr="fade-left">
+                <div class="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+                <div>
+                    <h3 class="text-xl font-bold text-green-800 mb-2">SEO 쌉가능</h3>
+                    <p class="text-gray-700">구글 알고리즘 15년 추적, 상위 노출 보장</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4" data-sr="fade-right">
+                <div class="bg-yellow-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-800 mb-2">매출 중심 설계</h3>
+                    <p class="text-gray-700">예쁘기만 한 홈페이지는 절대 만들지 않습니다</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4" data-sr="fade-left">
+                <div class="bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
+                <div>
+                    <h3 class="text-xl font-bold text-purple-800 mb-2">불가능도 가능으로</h3>
+                    <p class="text-gray-700">"안 돼요" 없는 15년 경험</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4" data-sr="fade-right">
+                <div class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">5</div>
+                <div>
+                    <h3 class="text-xl font-bold text-red-800 mb-2">평생 파트너십</h3>
+                    <p class="text-gray-700">만들고 끝이 아닌 지속 성장 동반자</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO Guarantee Section -->
+<section class="py-20 bg-green-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-black mb-8" data-sr="fade-up">
+                <span class="text-4xl">🎯</span> SEO 성과 보장제
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-green-800 p-6 rounded-lg" data-sr="fade-up" data-sr-delay="100">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="font-bold mb-2">메인 키워드</h3>
+                    <p class="text-green-200">구글 1페이지 진입 보장<br>(6개월 내)</p>
+                </div>
+                <div class="bg-green-800 p-6 rounded-lg" data-sr="fade-up" data-sr-delay="200">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="font-bold mb-2">검색 유입</h3>
+                    <p class="text-green-200">3배 증가 또는<br>100% 환불</p>
+                </div>
+                <div class="bg-green-800 p-6 rounded-lg" data-sr="fade-up" data-sr-delay="300">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="font-bold mb-2">성과 리포트</h3>
+                    <p class="text-green-200">월간 SEO 성과<br>리포트 제공</p>
+                </div>
+            </div>
+            <div class="bg-yellow-500 text-black p-6 rounded-lg" data-sr="zoom-in">
+                <p class="text-xl font-bold">
+                    "말로만 SEO 된다고 하는 업체 말고, <span class="text-green-800">보장하는 곳</span>을 찾으셨나요?"
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section id="contact" class="py-20 gradient-bg text-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-black mb-8" data-sr="fade-up">
+                <span class="text-4xl">🤝</span> 15년차 파트너와 함께 시작해보세요
+            </h2>
+            <p class="text-2xl mb-12" data-sr="fade-up" data-sr-delay="300">
+                "기획부터 SEO까지, 15년차가 직접 상담해드립니다"
+            </p>
+
+            <div class="bg-white text-gray-800 p-8 rounded-lg mb-12" data-sr="zoom-in">
+                <h3 class="text-2xl font-bold mb-6 text-yellow-600">⏰ 이번 달 한정 특별 혜택</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl mb-2">✅</div>
+                        <h4 class="font-bold mb-2">비즈니스 분석 리포트</h4>
+                        <p class="text-green-600 font-bold">무료</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">✅</div>
+                        <h4 class="font-bold mb-2">SEO 키워드 전략</h4>
+                        <p class="text-green-600 font-bold">무료 수립</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">✅</div>
+                        <h4 class="font-bold mb-2">경쟁사 분석 리포트</h4>
+                        <p class="text-green-600 font-bold">무료</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gold-gradient text-white px-12 py-6 rounded-lg text-2xl font-bold hover:shadow-2xl transition-all transform hover:scale-105 pulse-button mb-8" data-sr="fade-up" data-sr-delay="600">
+                무료 비즈니스 전략 상담
+            </button>
+
+            <p class="text-xl" data-sr="fade-up" data-sr-delay="900">
+                "혼자 고민하지 마세요. <span class="text-yellow-400 font-bold">경험 많은 파트너</span>가 함께 합니다."
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">15년차 개발자</h3>
+                <p class="text-gray-400">돈 버는 홈페이지 전문가</p>
+                <p class="text-gray-400">기획부터 SEO까지 함께하는 파트너</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">서비스</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li>비즈니스 기획 상담</li>
+                    <li>매출 최적화 개발</li>
+                    <li>SEO 전문 작업</li>
+                    <li>지속 성장 파트너십</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">연락처</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p>📧 contact@15yeardev.com</p>
+                    <p>📱 010-1234-5678</p>
+                    <p>💬 24시간 상담 가능</p>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 15년차 개발자. 모든 권리 보유.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        // ScrollReveal이 로드되었는지 확인
+        if (typeof ScrollReveal !== 'undefined') {
+            // ScrollReveal 초기화
+            ScrollReveal().reveal('[data-sr]', {
+                duration: 1000,
+                distance: '50px',
+                easing: 'ease-out',
+                origin: 'bottom',
+                reset: false
+            });
+        } else {
+            console.log('ScrollReveal not loaded, using fallback animations');
+            // ScrollReveal이 없을 경우 기본 애니메이션
+            $('[data-sr]').css({
+                'opacity': '1',
+                'transform': 'translateY(0)'
+            });
+        }
+
+        // 카운터 애니메이션
+        function animateCounter() {
+            $('.counter, .number-counter').each(function() {
+                const $this = $(this);
+                const target = parseFloat($this.data('count'));
+
+                if ($this.hasClass('animated')) return;
+                $this.addClass('animated');
+
+                $({ count: 0 }).animate({
+                    count: target
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        if (target % 1 === 0) {
+                            $this.text(Math.ceil(this.count));
+                        } else {
+                            $this.text(this.count.toFixed(1));
+                        }
+                    },
+                    complete: function() {
+                        if (target % 1 === 0) {
+                            $this.text(target);
+                        } else {
+                            $this.text(target.toFixed(1));
+                        }
+                    }
+                });
+            });
+        }
+
+        // 스크롤 이벤트로 카운터 실행
+        $(window).scroll(function() {
+            $('.counter, .number-counter').each(function() {
+                const elementTop = $(this).offset().top;
+                const elementBottom = elementTop + $(this).outerHeight();
+                const viewportTop = $(window).scrollTop();
+                const viewportBottom = viewportTop + $(window).height();
+
+                if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                    if (!$(this).hasClass('animated')) {
+                        animateCounter();
+                    }
+                }
+            });
+        });
+
+        // 타이핑 애니메이션
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.text('');
+
+            function type() {
+                if (i < text.length) {
+                    element.text(element.text() + text.charAt(i));
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            setTimeout(type, 1000);
+        }
+
+        // 히어로 섹션 타이핑 효과
+        setTimeout(() => {
+            typeWriter($('.typing-animation'), '뭘 원하세요?', 150);
+        }, 2000);
+
+        // 부드러운 스크롤
+        $('a[href^="#"]').click(function(e) {
+            e.preventDefault();
+            const target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 1000);
+            }
+        });
+
+        // 네비게이션 스크롤 효과
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('nav').addClass('shadow-2xl');
+            } else {
+                $('nav').removeClass('shadow-2xl');
+            }
+        });
+
+        // CTA 버튼 클릭 이벤트
+        $('.pulse-button, button').click(function() {
+            $(this).addClass('transform scale-95');
+            setTimeout(() => {
+                $(this).removeClass('transform scale-95');
+            }, 150);
+        });
+
+        // 페이지 로드 시 초기 애니메이션
+        setTimeout(() => {
+            $('.floating').addClass('floating');
+        }, 500);
+    });
+</script>
+</body>
+</html>
